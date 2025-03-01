@@ -14,6 +14,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/gaanesht.png" width="200px">
 [[homepage](https://gaanesh.com)]
 [[github](https://github.com/GaaneshT)]
-[[portfolio](team/gaanesh.md)]
+[[portfolio](team/gaanesht.md)]
 
 * Role: Developer
