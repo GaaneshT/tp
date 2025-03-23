@@ -170,6 +170,16 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+
+### Sorting the current list: `sort`
+sorts the current list alphebatically by name.
+
+Subsequent additions are inserted at the bottom.
+
+This command takes no arguments.
+
+Format: `sort`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
@@ -217,14 +227,15 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action      | Format, Examples                                                                                                                                                                                                                                        |
-|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action      | Format, Examples                                                                                                                                                                                  |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**     | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [l/ EDUCATION_LEVEL] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXPECTED_GRADE] [t/TAG]…` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 cg/D t/friend t/colleague` |
-| **Clear**   | `clear`                                                                                                                                                                                                                                                 |
-| **Delete**  | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                     |
-| **Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXPECTED_GRADE] [t/TAG]… [t+/TAGS_TO_APPEND]… [t-/TAGS_TO_REMOVE]…`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com t+/CS2040C#1E2C4D`         |
-| **Payment** | `payment INDEX [f/FEE] d/[PAYMENT_DATE]`<br> e.g., `payment 4 f/1000 d/14-11-2000`                                                                                                                                                                      |
-| **Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                              |
-| **List**    | `list`                                                                                                                                                                                                                                                  |
-| **Help**    | `help`                                                                                                                                                                                                                                                  |
+| **Clear**   | `clear`                                                                                                                                                                                           |
+| **Delete**  | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                               |
+| **Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXPECTED_GRADE] [t/TAG]… [t+/TAGS_TO_APPEND]… [t-/TAGS_TO_REMOVE]…`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com t+/CS2040C#1E2C4D` |
+| **Payment** | `payment INDEX [f/FEE] d/[PAYMENT_DATE]`<br> e.g., `payment 4 f/1000 d/14-11-2000`                                                                                                                |
+| **Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake` <br/>                                                                                                                                  |
+| **Sort**    | `sort`                                                                                                                                                                                            |
+| **List**    | `list`                                                                                                                                                                                            |
+| **Help**    | `help`                                                                                                                                                                                            |
 
