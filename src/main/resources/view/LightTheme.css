@@ -212,6 +212,11 @@
     -fx-text-fill: #333333; /* Darker input text */
 }
 
+#tags {
+    -fx-hgap: 7;
+    -fx-vgap: 3;
+}
+
 #tags .label {
     -fx-text-fill: #333333; /* Darker text */
     -fx-background-color: #a0c1d1;
