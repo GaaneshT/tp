@@ -42,10 +42,12 @@ public class ExpectedGradeTest {
         ExpectedGrade emptyExpectedGrade = new ExpectedGrade("");
         ExpectedGrade validExpectedGrade = new ExpectedGrade("A");
         ExpectedGrade validExpectedGradeWithSign = new ExpectedGrade("B+");
+        ExpectedGrade validExpectedGrade2 = new ExpectedGrade("PASS");
 
         assertEquals(emptyExpectedGrade.getExpectedGradeLetter(), "");
         assertEquals(validExpectedGrade.getExpectedGradeLetter(), "A");
         assertEquals(validExpectedGradeWithSign.getExpectedGradeLetter(), "B");
+        assertEquals(validExpectedGrade2.getExpectedGradeLetter(), "PASS");
 
     }
 

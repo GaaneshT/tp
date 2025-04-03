@@ -45,12 +45,16 @@ public class CurrentGrade {
     }
 
     /**
-     * Extracts the first letter of the given grade string.
+     * Extracts the first letter of the given grade string if Grade A to Grade F.
      *
-     * @return the first letter of the grade if present, otherwise an empty string
+     * @return the first letter of the grade if present or the value itself, otherwise an empty string
      */
     public String getCurrentGradeLetter() {
-        return value.trim().isEmpty() ? "" : value.substring(0, 1);
+        if (value.matches("^[A-F][+-]?$")) {
+            return value.trim().isEmpty() ? "" : value.trim().substring(0, 1);
+        } else {
+            return value.trim().isEmpty() ? "" : value.trim();
+        }
     }
 
     /**
