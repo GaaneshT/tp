@@ -472,6 +472,10 @@ It's strongly recommended to make a backup of your data file before any manual e
    The remedy is to click on the specific Person's Card, which will trigger a CSS style update, so that the wrapping
    works as intended.
    ![Example of Tags Overflowing Bug Remedy](images/TagsOverflow_2.png)
+4. **When local system date changes occurs**, in certain scenarios where a person's `Payment Info` would be displayed 
+   from one color to another, the visual feedback of these changes might not be properly displayed. The remedy is to
+   click on the specific Person's Card, which will trigger a CSS style update to re-render the Peron's Payment Info.
+   For more information about the issue, click [here](https://github.com/AY2425S2-CS2103-F15-2/tp/issues/147).
 
 --------------------------------------------------------------------------------------------------------------------
 
