@@ -47,12 +47,16 @@ public class ExpectedGrade {
     }
 
     /**
-     * Extracts first letter of the given grade string.
+     * Extracts first letter of the given grade string if Grade A to Grade F.
      *
-     * @return The first letter of grade if present, otherwise an empty string.
+     * @return the first letter of the grade if present or the value itself, otherwise an empty string.
      */
     public String getExpectedGradeLetter() {
-        return value.trim().isEmpty() ? "" : value.substring(0, 1);
+        if (value.matches("^[A-F][+-]?$")) {
+            return value.trim().isEmpty() ? "" : value.trim().substring(0, 1);
+        } else {
+            return value.trim().isEmpty() ? "" : value.trim();
+        }
     }
 
     /**
