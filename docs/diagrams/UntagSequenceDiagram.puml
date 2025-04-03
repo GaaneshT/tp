@@ -28,7 +28,7 @@ activate UntagCommandParser
 UntagCommandParser --> AddressBookParser
 deactivate UntagCommandParser
 
-AddressBookParser -> UntagCommandParser : parse("t/CS2040 t/Math")
+AddressBookParser -> UntagCommandParser : parse(" t/CS2040 t/Math")
 activate UntagCommandParser
 
 create UntagCommand
