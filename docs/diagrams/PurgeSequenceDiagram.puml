@@ -24,7 +24,7 @@ end box
 [-> LogicManager : execute("purge")
 activate LogicManager
 
-LogicManager -> AddressBookParser: parseCommand()
+LogicManager -> AddressBookParser: parseCommand("purge")
 activate AddressBookParser
 
 ' Create the PurgeCommandParser
@@ -76,10 +76,11 @@ deactivate AddressBook
 PurgeCommand -> Model
 activate Model
 Model -> AddressBook : setAddressBook(a)
-deactivate Model
 activate AddressBook
-AddressBook -[hidden]-> PurgeCommand
+AddressBook --> Model
 deactivate AddressBook
+Model --> PurgeCommand
+deactivate Model
 
 'activate Model
 '
