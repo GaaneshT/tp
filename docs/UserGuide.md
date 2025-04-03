@@ -56,13 +56,13 @@ can get your contact management or other administrative tasks done faster than t
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or simply as `n/John Doe`.
 
 * Items with `…` after them can be used less than or equals to 8 times, including zero times.<br>
   e.g. `[t/TAG]…` can be used as ` ` (i.e. 0 times), `t/cs4238`, `t/cs2103 t/GEA1000` etc.
 
 * Any tags can be written as an alphanumeric tag
-    * Optional: Tags can be appended with a `#` followed by 6 hexadecimal color code for a custom color. (E.g.
+    * Optional: Tags can be appended with a `#` followed by 6 hexadecimal color code for a custom color. (i.e.
       `CS2040C#ED9E49`)
     * Tags without a hexadecimal color code appended will resolve to a default color.
 
@@ -73,40 +73,89 @@ can get your contact management or other administrative tasks done faster than t
   commands—may result in them being interpreted as plaintext (i.e. `f/1000` is not a valid prefix for the `add` command
   and will not be parsed correctly).
 
-* Commands that do not take in parameters (such as `help`, `list`, `exit` and `purge`) will show error when arguments
+* Commands that do not take in parameters (i.e. `help`, `list`, `exit`, `purge`) will show error when arguments
   are provided.
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines
+* If you are using the PDF version of this document, be careful when copying and pasting commands that span multiple lines
   as space characters surrounding line-breaks may be omitted when copied over to the application.
 
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-NAME must be between 1 and 65 characters. (Do note that extremely long NAME may be truncated unless you increase the window size)
+The intended use-case of TutorSynch application includes only the English language. 
+Use of other language (i.e. Chinese characters) may result in TutorSynch to behave in unexpected ways.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-EMAIL must be between 1 and 85 characters. (Do note that extremely long EMAIL may be truncated unless you increase the window size)
+NAME must be between 1 and 65 characters and may contain spaces.<br>  (Do note that extremely long NAME may be truncated unless you increase the window size)
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-ADDRESS must be between 1 and 85 characters. (Do note that extremely long ADDRESS may be truncated unless you increase the window size)
+EMAIL must be between 1 and 85 characters.<br>  (Do note that extremely long EMAIL may be truncated unless you increase the window size)<br>
+EMAIL should also be of the format `local-part@domain` such that:<br>
+1. The local-part should only contain alphanumeric characters and these special characters (`+_.-`). The local-part may not start or end with any special characters.<br>
+2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. The domain name must:<br>
+    - end with a domain label at least 2 characters long.<br>
+    - have each domain label start and end with alphanumeric characters.<br>
+    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.<br>
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-CURRENT_YEAR is limited to a maximum of 30 characters.
+PHONE must be between 3 and 85 characters.<br>  (Do note that extremely long PHONE may be truncated unless you increase the window size)<br>
+PHONE may include digits, letters (A–Z, a–z), spaces, and the following special characters: `+`, `(`, `)`.<br>
+**Example**: `(HP) +65 12345678 (Office) 87654321`
+</div>
+
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+ADDRESS must be between 1 and 85 characters.<br>  (Do note that extremely long ADDRESS may be truncated unless you increase the window size)
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-Each TAG (before the optional #HEX code) must be alphanumeric and at most 10 characters.
+EDUCATION must be alphanumeric and may include spaces, with a maximum of 30 characters.<br>
+(Do note that extremely long EDUCATION values may be truncated unless you increase the window size)
+It may also be left empty to indicate no education level assigned.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-Tags can include an optional hexadecimal color code in the format #RRGGBB (e.g., t/cs2040#FFAABB).
+CURRENT_YEAR must be alphanumeric and may include spaces, with a maximum of 30 characters.<br>
+(Do note that extremely long CURRENT_YEAR values may be truncated unless you increase the window size)
+It may also be left empty to indicate no year assigned.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-A maximum of 8 unique TAGs are allowed per person.
+CURRENT_GRADE and EXP_GRADE must be one of the following (case-insensitive): A, A+, A-, B, B+, B-, C, C+, C-, D, D+, D-, E, E+, E-, F, F+, F-, CS, CU, S, U, PASS, FAIL.<br>
+It may also be left empty to indicate no grade assigned.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+FEE must be a non-negative integer (i.e., 0 or greater) and must not exceed the maximum value of a 32-bit signed integer (2,147,483,647).<br>
+`0` may be used to indicate no payment fee is assigned.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+PAYMENT_DATE must follow the date format `dd-MM-yyyy` (i.e. 13-01-2025, 14-11-2000).<br>
+Invalid formats such as `yyyy-MM-dd` (i.e. 2000-01-20) or incorrect dates (e.g., 32-01-2020, 00-00-0000) are not allowed.
+It may also be left empty to indicate no payment date assigned.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+STATUS must be either "paid" or "waiting" (case-insensitive).<br>
+It may also be left empty to indicate no payment status assigned.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+Each TAG name (before the optional #HEX code, including TAG_TO_APPEND and TAG_TO_REMOVE) must be alphanumeric and at most 10 characters.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+TAG (including TAG_TO_APPEND and TAG_TO_REMOVE) can include an optional hexadecimal color code in the format #RRGGBB (e.g., t/cs2040#FFAABB).
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+Two TAGs are considered equal if their names (i.e., the portion before the optional `#HEX` color code) match **case-insensitively**, regardless of whether or not they include a color code.<br>
+For example: `CS2040`, `cs2040`, and `cs2040#FFAABB` are all treated as the same TAG.<br>
+As such, when assigning TAGs, ensure that **no more than 8 unique TAG names** (ignoring case and color codes) are used per person.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
@@ -129,19 +178,22 @@ Adds a person to the address book.
 Format:
 `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated contacts are
-based on **EXACT** matching of name. For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be
-treated as 2 distinct contacts. Names are case-sensitive so `Jane Doe` and `jane doe` will be treated as distinct contacts.</div>
+* EDUCATION is an optional field, that can be used to store a student's Education Level (i.e. `Primary`, `Diploma`, `Junior College`, etc.)
+* CURRENT_YEAR is an optional field, that can be used to store a student's Current Year info (i.e. `Grade 12`, `Year 1`, etc.)
+* CURRENT_GRADE is an optional field, that can be used to store a student's Current Grade info (i.e. `B+`, `D-`, `FAIL`, etc.)
+* EXP_GRADE is an optional field, that  can be used to store a student's Expected Grade info (i.e. `A+`, `C-`, `PASS`, etc.)
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated email address are
-based on **CASE-INSENSITIVE** matching of emails. For example: `janedoe@email.com` and `JaneDoe@email.com` will be
-treated as duplicated contacts.</div>
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated contacts are 
+based on **EXACT** matching of NAMEs or **CASE-INSENSITIVE** matching of EMAILs.<br>
+For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be treated as 2 distinct contacts.<br>
+For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as duplicated contacts.
+</div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A person can have less than or equals to 8
-unique tags each (including 0).</div>
+unique TAGs each (including 0).</div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can add a hexadecimal color code to any tag by appending `#RRGGBB` after the tag name.
+You can add a hexadecimal color code to any TAG by appending `#RRGGBB` after the tag name.
 For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in the UI.</div>
 
 **Examples**:
@@ -167,22 +219,18 @@ Format:
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated contacts are
-based on **EXACT** matching of name. For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be
-treated as 2 distinct contacts. Names are case-sensitive so `Jane Doe` and `jane doe` will be treated as distinct contacts.</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated email address are
-based on **CASE-INSENSITIVE** matching of emails. For example: `janedoe@email.com` and `JaneDoe@email.com` will be
-treated as duplicated contacts.</div>
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have less than or equals to 8 unique tags each (including 0).
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated contacts are 
+based on **EXACT** matching of NAMEs or **CASE-INSENSITIVE** matching of EMAILs.<br>
+For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be treated as 2 distinct contacts.<br>
+For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as duplicated contacts.
 </div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** A person can have less than or equals to 8
+unique TAGs each (including 0).</div>
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-You can add a hexadecimal color code to any tag by appending `#RRGGBB` after the tag name.
-For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in the UI.
-</div>
+You can add a hexadecimal color code to any TAG by appending `#RRGGBB` after the tag name.
+For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in the UI.</div>
 
 **Examples**:
 
@@ -191,13 +239,13 @@ For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in t
 
 #### Tag Editing : `t/`, `t+/`, `t-/`
 
-* When editing tags, any number of `t/`, `t+/` or `t-/` may be provided, order of execution is as follows:
+* When editing tags, any number of `t/`, `t+/` or `t-/` may be provided, and the order of execution is as follows:
 
-1. Tags prefixed with `t/` form the new list of tags (overwriting the old tags), if none are provided, old list of tags
+1. TAGs prefixed with `t/` form the new list of tags (overwriting the old tags), if none are provided, old list of tags
    is used for the next steps.
-2. Tags prefixed with `t+/` are added to the current list. If the tag already exists, the updated list remains unchanged
-   as tags are unique.
-3. Tags prefixed with `t-/` are removed from the list provided by the last step. If the tag to be removed does not
+2. TAGs prefixed with `t+/` are added to the current list. If the tag already exists, the updated list remains unchanged
+   as tags are necessary to be unique.
+3. TAGs prefixed with `t-/` are removed from the list provided by the last step. If the tag to be removed does not
    exist, the app silently continues with the rest.
 4. The final tag list is updated to the person, and should have less than or equals to 8 unique tags.
 
@@ -218,6 +266,7 @@ Format: `untag t/TAG [t/TAG]...`
 
 - Removes all matching tags from all student records.
 - If a tag does not exist in any student record, it will be ignored.
+- At least one TAG must be included for the command to work.
 
 **Examples**:
 
@@ -237,9 +286,9 @@ Format: `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`
 * Provided fields will be updated with the input values. Any missing fields will be removed by default.
 * If none of the optional fields are provided, the specified person's payment information will be removed.
 * `FEE` should be an unsigned integer (positive, no decimals, and less than or equal to $2,147,483,647), and will be
-  removed if entered as `0`.
-* `PAYMENT_DATE` should be in the format `DD-MM-YYYY`.
-* `PAYMENT_STATUS` should be either `Paid` or `Waiting`.
+  removed if entered as `0`. It can be used to store a Student's Payment Fee.
+* `PAYMENT_DATE` should be in the format `DD-MM-YYYY`. It can be used to store a Student's Payment Date.
+* `PAYMENT_STATUS` should be either `Paid` or `Waiting`. It can be used to store a Student's Payment Status.
 
 **Examples**:
 
@@ -252,8 +301,6 @@ Format: `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`
 Sorts the list of people alphabetically based on their name.
 
 Subsequent additions are inserted at the bottom.
-
-This command takes no arguments.
 
 Format: `sort`
 
@@ -273,8 +320,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 **Examples**:
 
 * `find John` returns `john` and `John Doe`
-* `find lee yu` returns `Benny Lee`, `Bernice Yu`<br>
-  ![result for 'find lee yu'](images/findLeeYuResult.png)
+* `find li roy` returns `David Li`, `Roy Balakrishnan`<br>
+  ![result for 'find li roy'](images/findLiRoyResult.png)
 
 ### Filter list of persons : `filter`
 
@@ -282,7 +329,7 @@ Filters list of persons who match all filter conditions.
 
 Format: `filter [l/EDUCATION] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…`
 
-* Filters list to persons who fulfill all filter conditions.
+* Filters list to show all persons who fulfill **ALL** filter conditions.
 * At least one of the optional fields must be provided.
 * Empty fields are accepted
     * If `[l/EDUCATION] [cg/CURRENT_GRADE] [eg/EXP_GRADE]` are empty e.g. `l/ cg/ eg/`,
@@ -302,12 +349,12 @@ Format: `delete INDEX`
 **Examples**:
 
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `find Irfan` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ### Switching the Theme of the program : `toggletheme`
 
 * Switches the theme of the program from Dark Mode to Light Mode or vice versa.
-* Currently selected theme will be saved to the as a User Preferance Setting and loaded upon next boot.
+* Currently selected theme will be saved to the as a User Preference Setting and loaded upon next boot.
 
 Format: `toggletheme`
 
@@ -359,7 +406,7 @@ welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, TutorSynch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the TutorSynch to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+Furthermore, certain edits can cause TutorSynch to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -397,19 +444,19 @@ It's strongly recommended to make a backup of your data file before any manual e
 
 ## Command summary
 
-| Action           | Format, Examples                                                                                                                                                                                                                                              |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXPECTED_GRADE] [t/TAG]…` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 cg/D t/CS2030C t/friends`               |
-| **Purge**        | `purge`                                                                                                                                                                                                                                                       |
-| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                           |
-| **Clear**        | `clear i/START_INDEX...END_INDEX` OR `clear t/TAG [t/TAG]`                                                                                                                                                                                                    |
-| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXPECTED_GRADE] [t/TAG]… [t+/TAGS_TO_APPEND]… [t-/TAGS_TO_REMOVE]…`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com t+/CS2040C#1E2C4D` |
-| **Untag**        | `untag t/TAG [t/TAG]...`<br> e.g., `untag t/Math t/Science`                                                                                                                                                                                                   |
-| **Payment**      | `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`<br> e.g., `payment 1 f/1000 d/14-11-2000 s/paid`                                                                                                                                                  |
-| **Find**         | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                    |
-| **Sort**         | `sort`                                                                                                                                                                                                                                                        |
-| **Filter**       | `filter [l/EDUCATION] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…`                                                                                                                                                                                             |
-| **List**         | `list`                                                                                                                                                                                                                                                        |
-| **Help**         | `help`                                                                                                                                                                                                                                                        |
-| **Switch Theme** | `toggletheme`                                                                                                                                                                                                                                                 |
-| **Exit**         | `exit`                                                                                                                                                                                                                                                        |
+| Action           | Format, Examples                                                                                                                                                                                                                                               |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 cg/D t/CS2030C t/friends`                     |
+| **Purge**        | `purge`                                                                                                                                                                                                                                                        |
+| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                            |
+| **Clear**        | `clear i/START_INDEX...END_INDEX` OR `clear t/TAG [t/TAG]`                                                                                                                                                                                                     |
+| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]… [t+/TAGS_TO_APPEND]… [t-/TAGS_TO_REMOVE]…`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com t+/CS2040C#1E2C4D`       |
+| **Untag**        | `untag t/TAG [t/TAG]...`<br> e.g., `untag t/Math t/Science`                                                                                                                                                                                                    |
+| **Payment**      | `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`<br> e.g., `payment 1 f/1000 d/14-11-2000 s/paid`                                                                                                                                                   |
+| **Find**         | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                     |
+| **Sort**         | `sort`                                                                                                                                                                                                                                                         |
+| **Filter**       | `filter [l/EDUCATION] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…`                                                                                                                                                                                              |
+| **List**         | `list`                                                                                                                                                                                                                                                         |
+| **Help**         | `help`                                                                                                                                                                                                                                                         |
+| **Switch Theme** | `toggletheme`                                                                                                                                                                                                                                                  |
+| **Exit**         | `exit`                                                                                                                                                                                                                                                         |
