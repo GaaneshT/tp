@@ -196,6 +196,11 @@ unique TAGs each (including 0).</div>
 You can add a hexadecimal color code to any TAG by appending `#RRGGBB` after the tag name.
 For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in the UI.</div>
 
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+For `add` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE, EXP_GRADE and TAG cannot be used with an empty string. 
+(i.e. `add n/Benny p/12345678 e/benny@example.com a/Blk 123 cg/ eg/ t/` is invalid)
+</div>
+
 **Examples**:
 
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
@@ -212,7 +217,7 @@ Format: `list`
 Edits an existing person in the address book.
 
 Format:
-`edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]… [t+/TAGS_TO_APPEND]… [t-/TAGS_TO_REMOVE]…`
+`edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]… [t+/TAG_TO_APPEND]… [t-/TAG_TO_REMOVE]…`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list.
   The index **must be a positive integer** 1, 2, 3, …​
@@ -231,6 +236,19 @@ unique TAGs each (including 0).</div>
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 You can add a hexadecimal color code to any TAG by appending `#RRGGBB` after the tag name.
 For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in the UI.</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+For `edit` command, the parameter TAG can be used with any varying amount of TAGs or strictly a single TAG prefix occurrence followed by an empty string.
+If a TAG prefix is followed by an empty string (i.e. `edit 1 t/ cg/A+`), the edited person will be updated with **NO** tags.</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+For `edit` command, the parameters TAG_TO_APPEND and TAG_TO_REMOVE cannot be used with an empty string. 
+(i.e. `edit 1 t+/ cg/A+` is invalid)
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+For `edit` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE and EXP_GRADE can be used with an empty string to mark as non-applicable.
+(i.e. `edit 1 cg/ eg/ t/CS2040C`)</div>
 
 **Examples**:
 
@@ -268,11 +286,16 @@ Format: `untag t/TAG [t/TAG]...`
 - If a tag does not exist in any student record, it will be ignored.
 - At least one TAG must be included for the command to work.
 
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+For `untag` command, the parameter TAG cannot be used with an empty string. 
+(i.e. `untag t/` is invalid)
+</div>
+
 **Examples**:
 
-- `untag t/Math`  
+* `untag t/Math`  
   Removes the tag `Math` from all student records.
-- `untag t/Math t/Science`  
+* `untag t/Math t/Science`  
   Removes the tags `Math` and `Science` from all student records.
 
 ### Updating a person's payment information : `payment`
@@ -289,6 +312,11 @@ Format: `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`
   removed if entered as `0`. It can be used to store a Student's Payment Fee.
 * `PAYMENT_DATE` should be in the format `DD-MM-YYYY`. It can be used to store a Student's Payment Date.
 * `PAYMENT_STATUS` should be either `Paid` or `Waiting`. It can be used to store a Student's Payment Status.
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+For `payment` command, the parameters FEE, PAYMENT_DATE and PAYMENT_STATUS cannot be used with an empty string. 
+(i.e. `payment 1 f/ d/ s/` is invalid)
+</div>
 
 **Examples**:
 
@@ -377,6 +405,11 @@ Format: `clear i/START_INDEX...END_INDEX` OR `clear t/TAG [t/TAG]...`
 * If hexadecimal for color coding is provided in tag, hexadecimal color will be ignored
 * **IMPORTANT**: using both types of prefixes together will yield an error.
 
+<div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
+For `clear` command, the parameter TAG cannot be used with an empty string. 
+(i.e. `clear t/` is invalid)
+</div>
+
 **Examples**:
 
 * `list` followed by `clear i/2...5` will delete persons at indices 2, 3, 4 and 5 for a total of four deletions.
@@ -444,19 +477,19 @@ It's strongly recommended to make a backup of your data file before any manual e
 
 ## Command summary
 
-| Action           | Format, Examples                                                                                                                                                                                                                                               |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 cg/D t/CS2030C t/friends`                     |
-| **Purge**        | `purge`                                                                                                                                                                                                                                                        |
-| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                            |
-| **Clear**        | `clear i/START_INDEX...END_INDEX` OR `clear t/TAG [t/TAG]`                                                                                                                                                                                                     |
-| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]… [t+/TAGS_TO_APPEND]… [t-/TAGS_TO_REMOVE]…`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com t+/CS2040C#1E2C4D`       |
-| **Untag**        | `untag t/TAG [t/TAG]...`<br> e.g., `untag t/Math t/Science`                                                                                                                                                                                                    |
-| **Payment**      | `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`<br> e.g., `payment 1 f/1000 d/14-11-2000 s/paid`                                                                                                                                                   |
-| **Find**         | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                     |
-| **Sort**         | `sort`                                                                                                                                                                                                                                                         |
-| **Filter**       | `filter [l/EDUCATION] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…`                                                                                                                                                                                              |
-| **List**         | `list`                                                                                                                                                                                                                                                         |
-| **Help**         | `help`                                                                                                                                                                                                                                                         |
-| **Switch Theme** | `toggletheme`                                                                                                                                                                                                                                                  |
-| **Exit**         | `exit`                                                                                                                                                                                                                                                         |
+| Action           | Format, Examples                                                                                                                                                                                                                                             |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 cg/D t/CS2030C t/friends`                   |
+| **Purge**        | `purge`                                                                                                                                                                                                                                                      |
+| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                          |
+| **Clear**        | `clear i/START_INDEX...END_INDEX` OR `clear t/TAG [t/TAG]`                                                                                                                                                                                                   |
+| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/EDUCATION] [cy/CURRENT_YEAR] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]… [t+/TAG_TO_APPEND]… [t-/TAG_TO_REMOVE]…`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com t+/CS2040C#1E2C4D`       |
+| **Untag**        | `untag t/TAG [t/TAG]...`<br> e.g., `untag t/Math t/Science`                                                                                                                                                                                                  |
+| **Payment**      | `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`<br> e.g., `payment 1 f/1000 d/14-11-2000 s/paid`                                                                                                                                                 |
+| **Find**         | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                   |
+| **Sort**         | `sort`                                                                                                                                                                                                                                                       |
+| **Filter**       | `filter [l/EDUCATION] [cg/CURRENT_GRADE] [eg/EXP_GRADE] [t/TAG]…`                                                                                                                                                                                            |
+| **List**         | `list`                                                                                                                                                                                                                                                       |
+| **Help**         | `help`                                                                                                                                                                                                                                                       |
+| **Switch Theme** | `toggletheme`                                                                                                                                                                                                                                                |
+| **Exit**         | `exit`                                                                                                                                                                                                                                                       |
