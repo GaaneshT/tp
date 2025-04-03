@@ -49,7 +49,7 @@ activate PurgeCommandParser
 
 ' Create and return new PurgeCommand
 create PurgeCommand
-PurgeCommandParser -> PurgeCommand:purgeCommand()
+PurgeCommandParser -> PurgeCommand
 activate PurgeCommand
 
 PurgeCommand --> PurgeCommandParser : p
@@ -68,27 +68,19 @@ LogicManager -> PurgeCommand : execute(m)
 activate PurgeCommand
 
 create AddressBook
-PurgeCommand -> AddressBook : AddressBook()
+PurgeCommand -> AddressBook
 activate AddressBook
 AddressBook --> PurgeCommand : a
 deactivate AddressBook
 
-PurgeCommand -> Model
+PurgeCommand -> Model :setAddressBook(a)
 activate Model
-Model -> AddressBook : setAddressBook(a)
-activate AddressBook
-AddressBook --> Model
-deactivate AddressBook
+
 Model --> PurgeCommand
 deactivate Model
 
-'activate Model
-'
-'Model -> Model : reorder internal person list
-'deactivate Model
-
 create CommandResult
-PurgeCommand -> CommandResult : commandResult()
+PurgeCommand -> CommandResult
 activate CommandResult
 
 CommandResult --> PurgeCommand : r
