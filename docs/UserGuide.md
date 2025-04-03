@@ -140,7 +140,7 @@ It may also be left empty to indicate no payment date assigned.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-STATUS must be either "paid" or "waiting" (case-insensitive).<br>
+PAYMENT_STATUS must be either "paid" or "waiting" (case-insensitive).<br>
 It may also be left empty to indicate no payment status assigned.
 </div>
 
@@ -311,7 +311,7 @@ Format: `payment INDEX [f/FEE] [d/PAYMENT_DATE] [s/PAYMENT_STATUS]`
 * `FEE` should be an unsigned integer (positive, no decimals, and less than or equal to $2,147,483,647), and will be
   removed if entered as `0`. It can be used to store a Student's Payment Fee.
 * `PAYMENT_DATE` should be in the format `DD-MM-YYYY`. It can be used to store a Student's Payment Date.
-* `PAYMENT_STATUS` should be either `Paid` or `Waiting`. It can be used to store a Student's Payment Status.
+* `PAYMENT_STATUS` should be either `Paid` or `Waiting` (case-insensitive). It can be used to store a Student's Payment Status.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 For `payment` command, the parameters FEE, PAYMENT_DATE and PAYMENT_STATUS cannot be used with an empty string. 
