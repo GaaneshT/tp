@@ -73,7 +73,7 @@ can get your contact management or other administrative tasks done faster than t
   commands—may result in them being interpreted as plaintext (i.e. `f/1000` is not a valid prefix for the `add` command
   and will not be parsed correctly).
 
-* Commands that do not take in parameters (i.e. `help`, `list`, `exit`, `purge`) will show error when arguments
+* Commands that do not take in parameters (i.e. `help`, `list`, `exit`, `purge`, `sort`, `toggletheme`) will show error when arguments
   are provided.
 
 * If you are using the PDF version of this document, be careful when copying and pasting commands that span multiple lines
