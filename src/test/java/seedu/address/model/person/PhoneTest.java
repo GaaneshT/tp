@@ -26,43 +26,48 @@ public class PhoneTest {
 
         // invalid phone numbers
         assertFalse(Phone.isValidPhone("")); // empty string
-        assertFalse(Phone.isValidPhone(" "));  // space
-        assertFalse(Phone.isValidPhone("12"));  // less than 3 digits
-        assertFalse(Phone.isValidPhone("+"));  // no digits
-        assertFalse(Phone.isValidPhone("123!"));  // special character
-        assertFalse(Phone.isValidPhone("+123#"));  // special character
-        assertFalse(Phone.isValidPhone("123 (abc!)"));  // invalid char in bracket
-        assertFalse(Phone.isValidPhone("123 (abc@123)"));  // invalid char in bracket
-        assertFalse(Phone.isValidPhone("123 ()()"));  // multiple brackets
-        assertFalse(Phone.isValidPhone("123 (abc)123"));  // extra after bracket
-        assertFalse(Phone.isValidPhone("abc123"));  // letters outside bracket
-        assertFalse(Phone.isValidPhone("+1a2b3"));  // letters outside bracket
-        assertFalse(Phone.isValidPhone("123 ()abc"));  // extra after bracket
-        assertFalse(Phone.isValidPhone("(abc)"));  // no digits at all
-        assertFalse(Phone.isValidPhone("123 [abc]"));  // wrong brackets
-        assertFalse(Phone.isValidPhone("123 (abc123"));  // missing closing bracket
-        assertFalse(Phone.isValidPhone("123 abc123)"));  // missing opening bracket
-        assertFalse(Phone.isValidPhone("1 2"));  // only 2 digits
-        assertFalse(Phone.isValidPhone("+1 2"));  // only 2 digits
-        assertFalse(Phone.isValidPhone("12 34 (abc!)"));  // invalid char in bracket
-        assertFalse(Phone.isValidPhone("+(abc)"));  // no digits at all
-        assertFalse(Phone.isValidPhone("++123"));  // double plus
-        assertFalse(Phone.isValidPhone(""));  // empty input
+        assertFalse(Phone.isValidPhone(" ")); // space
+        assertFalse(Phone.isValidPhone("12")); // less than 3 digits
+        assertFalse(Phone.isValidPhone("+")); // no digits
+        assertFalse(Phone.isValidPhone("()")); // brackets only
+        assertFalse(Phone.isValidPhone("+()")); // country code and brackets only
+        assertFalse(Phone.isValidPhone("12()")); // invalid phone number with brackets
+        assertFalse(Phone.isValidPhone("+12()")); // invalid phone number with country code and brackets
+        assertFalse(Phone.isValidPhone("123!")); // special character
+        assertFalse(Phone.isValidPhone("+123#")); // special character
+        assertFalse(Phone.isValidPhone("#123")); // wrong symbol for country code
+        assertFalse(Phone.isValidPhone("123 (abc!)")); // invalid char in bracket
+        assertFalse(Phone.isValidPhone("123 (abc@123)")); // invalid char in bracket
+        assertFalse(Phone.isValidPhone("123 ()()")); // multiple brackets
+        assertFalse(Phone.isValidPhone("123 (abc)123")); // extra after bracket
+        assertFalse(Phone.isValidPhone("abc123")); // letters outside bracket
+        assertFalse(Phone.isValidPhone("+1a2b3")); // letters outside bracket
+        assertFalse(Phone.isValidPhone("123 ()abc")); // extra after bracket
+        assertFalse(Phone.isValidPhone("(abc)")); // no digits at all
+        assertFalse(Phone.isValidPhone("123 [abc]")); // wrong brackets
+        assertFalse(Phone.isValidPhone("123 (abc123")); // missing closing bracket
+        assertFalse(Phone.isValidPhone("123 abc123)")); // missing opening bracket
+        assertFalse(Phone.isValidPhone("1 2")); // only 2 digits
+        assertFalse(Phone.isValidPhone("+1 2")); // only 2 digits
+        assertFalse(Phone.isValidPhone("12 34 (abc!)")); // invalid char in bracket
+        assertFalse(Phone.isValidPhone("+(abc)")); // no digits at all
+        assertFalse(Phone.isValidPhone("++123")); // double plus
+        assertFalse(Phone.isValidPhone("")); // empty input
         assertFalse(Phone.isValidPhone("123-456")); // dash not allowed
         assertFalse(Phone.isValidPhone("123456789012345678901234567890123456789012345678901234567890"
-                + "12345678901234567890123456")); //86 characters
+                + "12345678901234567890123456")); //86 characters, exceed limit
 
         // valid phone numbers
-        assertTrue(Phone.isValidPhone("+123"));
-        assertTrue(Phone.isValidPhone("123"));
+        assertTrue(Phone.isValidPhone("+123")); // valid phone number with country code
+        assertTrue(Phone.isValidPhone("123")); // valid phone number
         assertTrue(Phone.isValidPhone("1 2 3"));
         assertTrue(Phone.isValidPhone("+1 2 3"));
-        assertTrue(Phone.isValidPhone("123 (abc)"));
+        assertTrue(Phone.isValidPhone("123 (abc)")); // valid phone number with label
         assertTrue(Phone.isValidPhone("123456 (abc123)"));
-        assertTrue(Phone.isValidPhone("+123 456 789 (abcDEF)"));
+        assertTrue(Phone.isValidPhone("+123 456 789 (abcDEF)")); //valid phone number with country code and label
         assertTrue(Phone.isValidPhone("+ 1 2 3"));
         assertTrue(Phone.isValidPhone(" 1 2 3 "));
-        assertTrue(Phone.isValidPhone("123 ()"));
+        assertTrue(Phone.isValidPhone("123 ()")); // empty label
         assertTrue(Phone.isValidPhone("+1234567890"));
         assertTrue(Phone.isValidPhone("123 456 7890"));
         assertTrue(Phone.isValidPhone("+1 2 3 (info123)"));
@@ -74,7 +79,7 @@ public class PhoneTest {
         assertTrue(Phone.isValidPhone("+ 12 34 (A1B2C3)"));
         assertTrue(Phone.isValidPhone("123 (abcDEF123)"));
         assertTrue(Phone.isValidPhone("123456789012345678901234567890123456789012345678901234567890"
-                + "1234567890123456789012345")); // 85 characters
+                + "1234567890123456789012345")); // 85 characters, max limit
     }
 
     @Test
