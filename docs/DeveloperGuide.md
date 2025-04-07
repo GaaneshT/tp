@@ -184,7 +184,7 @@ The following diagram shows the interaction flow for the command — `untag t/CS
 
 ### `Filter` Command Feature
 
-The following diagram shows the interaction flow for the command — `filter cg/A`. This removes the tag `CS2040` and `Math` from all student records.
+The following diagram shows the interaction flow for the command — `filter cg/A`. This filters the display list to show all persons with current grade `A`.
 
 ![FilterSequenceDiagram](images/FilterSequenceDiagram.png)
 

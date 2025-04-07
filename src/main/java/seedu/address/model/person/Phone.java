@@ -10,13 +10,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Phone {
 
     public static final int MAX_LENGTH = 85;
-    public static final String MESSAGE_CONSTRAINTS = "Phone numbers must adhere to the following:\n"
-            + "1. Must have at least 3 numbers \n"
-            + String.format("2. Maximum of %d characters, includes spaces", MAX_LENGTH)
-            + "Additional Information (Optional): "
-            + "1. + at beginning for country code (e.g. +65, Please note that country code numbers will be counted in minimum"
-            + "3. Optional label to follow after phone number, to be in a bracket with only alphanumeric characters"
-            +  " e.g. (HP) \n";
+    public static final String MESSAGE_CONSTRAINTS = "Phone numbers must adhere to the following constraints:\n"
+            + "1. Must contain at least 3 digits (only numbers and spaces, please use spaces in place of dashes).\n"
+            + String.format("2. Must not exceed %d characters, including spaces.\n", MAX_LENGTH)
+            + "Optional Additions:\n • A '+' may be added at the start to indicate a country code. \n"
+            + "• An optional label may follow the number in round brackets, e.g. (HP). "
+            + "Only alphanumeric characters are allowed inside the brackets.\n";
 
     public static final String VALIDATION_REGEX = "^\\+?([\\d ]*\\d[\\d ]*\\d[\\d ]*\\d[\\d ]*)(\\([a-zA-Z0-9]*\\))?$";
     public final String value;

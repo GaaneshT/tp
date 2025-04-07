@@ -101,9 +101,11 @@ EMAIL should also be of the format `local-part@domain` such that:<br>
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-PHONE must be between 3 and 85 characters.<br>  (Do note that extremely long PHONE may be truncated unless you increase the window size)<br>
-PHONE may include digits, letters (A–Z, a–z), spaces, and the following special characters: `+`, `(`, `)`.<br>
-**Example**: `(HP) +65 12345678 (Office) 87654321`
+PHONE must be at least 3 digits.<br>  (Do note that extremely long PHONE may be truncated unless you increase the window size)<br>
+PHONE numbers should only consist of numbers and spaces. Please use spaces in place of dashes<br>
+PHONE numbers may include an optional + at the start to indicate country code<br>
+PHONE numbers may include an optional round bracket () at the end with alphanumeric characters for labelling of number<br>
+**Example**: `+65 1234 5678 (Office)`
 </div>
 
 
