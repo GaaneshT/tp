@@ -165,8 +165,8 @@ public class StringUtilTest {
     @Test
     public void isValidDate_outside100YearRange_returnsFalse() {
         LocalDate now = LocalDate.now();
-        String tooOld = now.minusYears(101).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        String tooFuture = now.plusYears(101).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String tooOld = now.minusYears(201).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String tooFuture = now.plusYears(201).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
         assertFalse(StringUtil.isValidDate(tooOld));
         assertFalse(StringUtil.isValidDate(tooFuture));

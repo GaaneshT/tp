@@ -12,7 +12,7 @@ public class PaymentInfo {
     public static final String MESSAGE_CONSTRAINTS_FEE =
             "Fees should only contain unsigned integers, less than $2,147,483,648, and it should not be blank";
     public static final String MESSAGE_CONSTRAINTS_DATE =
-            "Dates should be in dd-MM-yyyy format, must be a real valid date, and within 100 years from today. "
+            "Dates should be in dd-MM-yyyy format, must be a real valid date, and within 200 years from today. "
                     + "It should also not be blank";
     public static final String MESSAGE_CONSTRAINTS_STATUS =
             "Payment Status should only be either 'paid' or 'waiting', and it should not be blank";
