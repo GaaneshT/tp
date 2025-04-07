@@ -69,9 +69,9 @@ can get your contact management or other administrative tasks done faster than t
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* Only use the prefixes explicitly defined for a given command. Using unsupported prefixes—such as those from other
+* Only use the [prefixes](#prefix) explicitly defined for a given command. Using unsupported prefixes—such as those from other
   commands—may result in them being interpreted as plaintext (i.e. `f/1000` is not a valid prefix for the `add` command
-  and will not be parsed correctly).
+  and will not be parsed correctly). **Prefixes are strictly lower case**. 
 
 * Commands that do not take in parameters (i.e. `help`, `list`, `exit`, `purge`, `sort`, `toggletheme`) will show error when arguments
   are provided.
@@ -410,7 +410,7 @@ It's strongly recommended to make a backup of your data file before any manual e
 ### Fields in TutorSynch
 The descriptions for the fields state the intentions of the dev team. However, as long as the constraints are kept to, users may freely utilise the fields to suit their own needs.
 #### Prefix
-A prefix is used to denote the start of a field when using commands that require multiple inputs. A prefix always follows the following format: a one or two letter shortcode followed by a forward slash. E.g., `n/`
+A prefix is used to denote the start of a field when using commands that require multiple inputs. A prefix always follows the following format: a one or two letter **lowercase** shortcode followed by a forward slash. E.g., `n/`
 
 #### Index : `INDEX`
 - **Prefix**: none
