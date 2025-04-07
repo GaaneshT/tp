@@ -3,9 +3,10 @@ layout: page
 title: User Guide
 ---
 
-TutorSynch is a **desktop app for managing student contacts and academic details, optimized for use via a Command Line
-Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TutorSynch
-can get your contact management or other administrative tasks done faster than traditional GUI apps.
+TutorSynch is a **desktop app built for independent tutors, designed to help manage student contacts, academic details 
+and payments with ease**. It is **optimized for use via a Command Line Interface (CLI)** while still offering the 
+benefits of a Graphical User Interface (GUI). If you can type fast, TutorSynch can handle your contact management, payment tracking 
+and student data organisation more efficiently than traditional GUI-only apps.
 
 * Table of Contents
 {:toc}

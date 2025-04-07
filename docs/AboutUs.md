@@ -61,6 +61,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/theend-alr-taken.png" width="200px">
 
 [[github](https://github.com/TheEnd-alr-taken)]
-[[portfolio](team/danial.md)]
+[[portfolio](team/theend-alr-taken)]
 
 * Role: Developer
