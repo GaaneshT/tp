@@ -130,18 +130,18 @@ It may also be left empty to indicate no grade assigned.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 FEE must be a non-negative integer (i.e., 0 or greater) and must not exceed the maximum value of a 32-bit signed integer (2,147,483,647).<br>
-`0` may be used to indicate no payment fee is assigned.
+`0` may explicitly be used to indicate no payment fee is assigned.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 PAYMENT_DATE must follow the date format `dd-MM-yyyy` (i.e. 13-01-2025, 14-11-2000).<br>
 Invalid formats such as `yyyy-MM-dd` (i.e. 2000-01-20) or incorrect dates (e.g., 32-01-2020, 00-00-0000) are not allowed.
-It may also be left empty to indicate no payment date assigned.
+It should not be blank.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 PAYMENT_STATUS must be either "paid" or "waiting" (case-insensitive).<br>
-It may also be left empty to indicate no payment status assigned.
+It should not be blank.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
