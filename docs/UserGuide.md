@@ -520,7 +520,7 @@ It may also be left empty to indicate no grade assigned.
 Stores the fee amount to be paid by a student, if applicable.
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 FEE must be a non-negative integer (i.e., 0 or greater) and must not exceed the maximum value of a 32-bit signed integer (2,147,483,647).<br>
-`0` may be used to indicate no payment fee is assigned.
+`0` may be used to indicate no payment fee is assigned. It may not be left as an empty value.
 </div>
 
 #### Payment Date: `d/PAYMENT_DATE`
@@ -534,7 +534,7 @@ PAYMENT_DATE must follow the date format `dd-MM-yyyy` (i.e. 13-01-2025, 14-11-20
 Invalid formats such as `yyyy-MM-dd` (i.e. 2000-01-20) or incorrect dates (e.g., 32-01-2020, 00-00-0000) are not allowed. <br>
 Dates are limited to 200 years before and after the current date. <br>
 E.g., if today is 07-04-2025, valid date range is from 07-04-1825 to 07-04-2225 (inclusive), invalid dates include 06-04-1825 and 08-04-2225. <br>
-It may also be left empty to indicate no payment date assigned.
+It may not be left as an empty string.
 </div>
 
 #### Payment Status: `s/PAYMENT_STATUS`
@@ -545,7 +545,7 @@ Stores the status of payment (`waiting` or `paid`) of a student, if applicable.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 PAYMENT_STATUS must be either "paid" or "waiting" (case-insensitive).<br>
-It may also be left empty to indicate no payment status assigned.
+It may not be left as an empty string.
 </div>
 
 #### Tag : `t/TAG`
