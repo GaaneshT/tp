@@ -156,7 +156,7 @@ public class PersonCard extends UiPart<Region> {
         }
 
         if (hasFee) {
-            sb.append("$").append(paymentInfo.getPaymentFee()).append(" ");
+            sb.append(String.format("$%,d ", paymentInfo.getPaymentFee()));
         }
         if (hasStatus) {
             sb.append(paymentInfo.getPaymentStatus()).append(" ");
