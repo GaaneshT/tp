@@ -61,7 +61,7 @@ can get your contact management or other administrative tasks done faster than t
 * Items with `…` after them can be used less than or equals to 8 times, including zero times.<br>
   e.g. `[t/TAG]…` can be used as ` ` (i.e. 0 times), `t/cs4238`, `t/cs2103 t/GEA1000` etc.
 
-* Any tags can be written as an alphanumeric tag
+* Any tags can be written as an alphanumeric tag containing no spaces and less than 10 characters
     * Optional: Tags can be appended with a `#` followed by 6 hexadecimal color code for a custom color. (i.e.
       `CS2040C#ED9E49`)
     * Tags without a hexadecimal color code appended will resolve to a default color.
@@ -87,17 +87,19 @@ Use of other language (i.e. Chinese characters) may result in TutorSynch to beha
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-NAME must be between 1 and 65 characters and may contain spaces.<br>  (Do note that extremely long NAME may be truncated unless you increase the window size)
+NAME must be between 1 and 65 characters. It may also contain spaces and these special characters (`,/'`).<br>  (Do note that extremely long NAME may be truncated unless you increase the window size)
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-EMAIL must be between 1 and 85 characters.<br>  (Do note that extremely long EMAIL may be truncated unless you increase the window size)<br>
+EMAIL must be between 1 and 254 characters.<br>  (Do note that extremely long EMAIL may be truncated even after you increase the window size)<br>
 EMAIL should also be of the format `local-part@domain` such that:<br>
-1. The local-part should only contain alphanumeric characters and these special characters (`+_.-`). The local-part may not start or end with any special characters.<br>
+1. The local-part should only contain alphanumeric characters and these special characters (`+_.-`). The local-part may not start or end with any special characters and each special character must be separated by at least 1 alphanumeric character.<br>
 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. The domain name must:<br>
     - end with a domain label at least 2 characters long.<br>
     - have each domain label start and end with alphanumeric characters.<br>
     - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.<br>
+    - have minimally 2 domain labels separated by at least 1 '.' special character.<br>
+    - separate each special character with at least 1 alphanumeric character.<br>
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
@@ -145,7 +147,7 @@ It may also be left empty to indicate no payment status assigned.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-Each TAG name (before the optional #HEX code, including TAG_TO_APPEND and TAG_TO_REMOVE) must be alphanumeric and at most 10 characters.
+Each TAG name (before the optional #HEX code, including TAG_TO_APPEND and TAG_TO_REMOVE) must be alphanumeric containing no spaces and at most 10 characters.
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
@@ -192,6 +194,9 @@ For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as dupl
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A person can have less than or equals to 8
 unique TAGs each (including 0).</div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Tags names should be less than 10 characters long and 
+should not contain spaces. </div>
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 You can add a hexadecimal color code to any TAG by appending `#RRGGBB` after the tag name.
 For example: `t/CS2040#ED9E49`. This allows tags to be visually color-coded in the UI.</div>
@@ -232,6 +237,9 @@ For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as dupl
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A person can have less than or equals to 8
 unique TAGs each (including 0).</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Tag name should be less than 10 characters long and 
+should not contain spaces. </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 You can add a hexadecimal color code to any TAG by appending `#RRGGBB` after the tag name.
@@ -465,14 +473,15 @@ It's strongly recommended to make a backup of your data file before any manual e
    application before running the application again.
 2. **If you need to see your truncated NAME, EMAIL or ADDRESS**, increase your window size for the application until it
    is no longer truncated.
-3. **When adding/editing many tags**, in certain scenarios where the tags begin to wrap (especially on lower screen
+3. **EMAIL may still be truncated**, if it is too long even when window size is the maximum
+4. **When adding/editing many tags**, in certain scenarios where the tags begin to wrap (especially on lower screen
    resolution), the tags may inadvertently overlap onto the remaining Person's information field, as shown in the
    screenshot below.
    ![Example of Tags Overflowing Bug](images/TagsOverflow_1.png)
    The remedy is to click on the specific Person's Card, which will trigger a CSS style update, so that the wrapping
    works as intended.
    ![Example of Tags Overflowing Bug Remedy](images/TagsOverflow_2.png)
-4. **When local system date changes occurs**, in certain scenarios where a person's `Payment Info` would be displayed 
+5. **When local system date changes occurs**, in certain scenarios where a person's `Payment Info` would be displayed 
    from one color to another, the visual feedback of these changes might not be properly displayed. The remedy is to
    click on the specific Person's Card, which will trigger a CSS style update to re-render the Peron's Payment Info.
    For more information about the issue, click [here](https://github.com/AY2425S2-CS2103-F15-2/tp/issues/147).
