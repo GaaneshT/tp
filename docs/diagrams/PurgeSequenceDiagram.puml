@@ -24,13 +24,13 @@ end box
 [-> LogicManager : execute("purge")
 activate LogicManager
 
-LogicManager -> AddressBookParser: parseCommand()
+LogicManager -> AddressBookParser: parseCommand("purge")
 activate AddressBookParser
 
 ' Create the PurgeCommandParser
 'AddressBookParser -> AddressBookParser: new PurgeCommandParser()
 create PurgeCommandParser
-AddressBookParser -> PurgeCommandParser : purgeCommandParser()
+AddressBookParser -> PurgeCommandParser :
 activate PurgeCommandParser
 
 ' Return to show the parser was constructed
@@ -43,13 +43,13 @@ deactivate PurgeCommandParser
 'destroy PurgeCommandParser
 
 ' Now call parse(...) on the newly created parser
-AddressBookParser -> PurgeCommandParser: parse()
+AddressBookParser -> PurgeCommandParser: parse("")
 
 activate PurgeCommandParser
 
 ' Create and return new PurgeCommand
 create PurgeCommand
-PurgeCommandParser -> PurgeCommand:purgeCommand()
+PurgeCommandParser -> PurgeCommand
 activate PurgeCommand
 
 PurgeCommand --> PurgeCommandParser : p
@@ -68,26 +68,19 @@ LogicManager -> PurgeCommand : execute(m)
 activate PurgeCommand
 
 create AddressBook
-PurgeCommand -> AddressBook : AddressBook()
+PurgeCommand -> AddressBook
 activate AddressBook
 AddressBook --> PurgeCommand : a
 deactivate AddressBook
 
-PurgeCommand -> Model
+PurgeCommand -> Model :setAddressBook(a)
 activate Model
-Model -> AddressBook : setAddressBook(a)
-deactivate Model
-activate AddressBook
-AddressBook -[hidden]-> PurgeCommand
-deactivate AddressBook
 
-'activate Model
-'
-'Model -> Model : reorder internal person list
-'deactivate Model
+Model --> PurgeCommand
+deactivate Model
 
 create CommandResult
-PurgeCommand -> CommandResult : commandResult()
+PurgeCommand -> CommandResult
 activate CommandResult
 
 CommandResult --> PurgeCommand : r

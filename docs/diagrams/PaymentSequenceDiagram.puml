@@ -27,7 +27,7 @@ activate PaymentCommandParser
 PaymentCommandParser --> AddressBookParser
 deactivate PaymentCommandParser
 
-AddressBookParser -> PaymentCommandParser : parse("1 f/1000")
+AddressBookParser -> PaymentCommandParser : parse(" 1 f/1000")
 activate PaymentCommandParser
 
 create PaymentCommand

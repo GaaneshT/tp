@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -31,8 +32,8 @@ public class PaymentCommandTest {
                 VALID_PAYMENT_DATE, VALID_PAYMENT_STATUS);
 
         String expectedMessage = String.format(PaymentCommand.MESSAGE_ADD_PAYMENT_SUCCESS,
-                new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).withPaymentDate(VALID_PAYMENT_DATE)
-                        .withPaymentStatus(VALID_PAYMENT_STATUS).build());
+                Messages.format(new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE)
+                        .withPaymentDate(VALID_PAYMENT_DATE).withPaymentStatus(VALID_PAYMENT_STATUS).build()));
 
         Model expectedModel = new ModelManager(new AddressBookBuilder().withPerson(
                 new PersonBuilder().build()).build(), new UserPrefs());
@@ -49,7 +50,7 @@ public class PaymentCommandTest {
         PaymentCommand paymentCommand = new PaymentCommand(INDEX_FIRST_PERSON, VALID_PAYMENT_FEE, "", "");
 
         String expectedMessage = String.format(PaymentCommand.MESSAGE_ADD_PAYMENT_SUCCESS,
-                new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).build());
+                Messages.format(new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).build()));
 
         Model expectedModel = new ModelManager(new AddressBookBuilder().withPerson(
                 new PersonBuilder().build()).build(), new UserPrefs());
@@ -62,7 +63,7 @@ public class PaymentCommandTest {
         paymentCommand = new PaymentCommand(INDEX_FIRST_PERSON, 0, VALID_PAYMENT_DATE, "");
 
         expectedMessage = String.format(PaymentCommand.MESSAGE_UPDATE_PAYMENT_SUCCESS,
-                new PersonBuilder().withPaymentDate(VALID_PAYMENT_DATE).build());
+                Messages.format(new PersonBuilder().withPaymentDate(VALID_PAYMENT_DATE).build()));
 
         expectedModel.setPerson(model.getFilteredPersonList().get(0),
                 new PersonBuilder().withPaymentDate(VALID_PAYMENT_DATE).build());
@@ -73,7 +74,7 @@ public class PaymentCommandTest {
         paymentCommand = new PaymentCommand(INDEX_FIRST_PERSON, 0, "", VALID_PAYMENT_STATUS);
 
         expectedMessage = String.format(PaymentCommand.MESSAGE_UPDATE_PAYMENT_SUCCESS,
-                new PersonBuilder().withPaymentStatus(VALID_PAYMENT_STATUS).build());
+                Messages.format(new PersonBuilder().withPaymentStatus(VALID_PAYMENT_STATUS).build()));
 
         expectedModel.setPerson(model.getFilteredPersonList().get(0),
                 new PersonBuilder().withPaymentStatus(VALID_PAYMENT_STATUS).build());
@@ -88,8 +89,8 @@ public class PaymentCommandTest {
                 VALID_PAYMENT_DATE, VALID_PAYMENT_STATUS);
 
         String expectedMessage = String.format(PaymentCommand.MESSAGE_ADD_PAYMENT_SUCCESS,
-                new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).withPaymentDate(VALID_PAYMENT_DATE)
-                        .withPaymentStatus(VALID_PAYMENT_STATUS).build());
+                Messages.format(new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE)
+                        .withPaymentDate(VALID_PAYMENT_DATE).withPaymentStatus(VALID_PAYMENT_STATUS).build()));
 
         Model expectedModel = new ModelManager(new AddressBookBuilder().withPerson(
                 new PersonBuilder().build()).build(), new UserPrefs());
@@ -103,7 +104,7 @@ public class PaymentCommandTest {
         paymentCommand = new PaymentCommand(INDEX_FIRST_PERSON, VALID_PAYMENT_FEE, "", "");
 
         expectedMessage = String.format(PaymentCommand.MESSAGE_UPDATE_PAYMENT_SUCCESS,
-                new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).build());
+                Messages.format(new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).build()));
 
         expectedModel.setPerson(model.getFilteredPersonList().get(0),
                 new PersonBuilder().withPaymentFee(VALID_PAYMENT_FEE).build());
@@ -113,7 +114,8 @@ public class PaymentCommandTest {
         // `MESSAGE_DELETE_PAYMENT_SUCCESS` check
         paymentCommand = new PaymentCommand(INDEX_FIRST_PERSON, 0, "", "");
 
-        expectedMessage = String.format(PaymentCommand.MESSAGE_DELETE_PAYMENT_SUCCESS, new PersonBuilder().build());
+        expectedMessage = String.format(PaymentCommand.MESSAGE_DELETE_PAYMENT_SUCCESS,
+                Messages.format(new PersonBuilder().build()));
 
         expectedModel.setPerson(model.getFilteredPersonList().get(0), new PersonBuilder().build());
 
@@ -122,7 +124,8 @@ public class PaymentCommandTest {
         // `MESSAGE_SAME_PAYMENT_SUCCESS` check
         paymentCommand = new PaymentCommand(INDEX_FIRST_PERSON, 0, "", "");
 
-        expectedMessage = String.format(PaymentCommand.MESSAGE_SAME_PAYMENT_SUCCESS, new PersonBuilder().build());
+        expectedMessage = String.format(PaymentCommand.MESSAGE_SAME_PAYMENT_SUCCESS,
+                Messages.format(new PersonBuilder().build()));
 
         expectedModel.setPerson(model.getFilteredPersonList().get(0), new PersonBuilder().build());
 
@@ -143,7 +146,7 @@ public class PaymentCommandTest {
      * but smaller than size of address book
      */
     @Test
-    public void execute_invalidPersonIndexFilteredList_failure() {
+    public void execute_invalidPersonIndexFilteredList_failure() throws CommandException {
         model.addPerson(new PersonBuilder().withName("Benny").withPhone("12345678").withEmail("benny@hotmail.com")
                 .withAddress("Singapore somewhere...").build());
         showPersonAtIndex(model, INDEX_FIRST_PERSON);

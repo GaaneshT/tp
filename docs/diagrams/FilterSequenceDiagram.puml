@@ -27,7 +27,7 @@ activate FilterCommandParser
 FilterCommandParser --> AddressBookParser
 deactivate FilterCommandParser
 
-AddressBookParser -> FilterCommandParser : parse("cg/A")
+AddressBookParser -> FilterCommandParser : parse(" cg/A")
 activate FilterCommandParser
 
 create FilterCommand
@@ -52,8 +52,7 @@ activate FilterCommand
 FilterCommand -> Model : updateFilteredPersonList(fD)
 activate Model
 
-Model -> Model : filter list
-
+Model --> FilterCommand
 deactivate Model
 
 create CommandResult

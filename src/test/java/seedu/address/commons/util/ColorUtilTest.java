@@ -31,12 +31,18 @@ public class ColorUtilTest {
 
     @Test
     public void getHexColor() {
+        assertEquals(getGradeHexColor("PASS"), "#4CAF50");
+        assertEquals(getGradeHexColor("CS"), "#4CAF50");
+        assertEquals(getGradeHexColor("S"), "#4CAF50");
         assertEquals(getGradeHexColor("A"), "#4CAF50");
         assertEquals(getGradeHexColor("B"), "#6CAA00");
         assertEquals(getGradeHexColor("C"), "#BEB005");
         assertEquals(getGradeHexColor("D"), "#F57C00");
         assertEquals(getGradeHexColor("E"), "#FF7043");
         assertEquals(getGradeHexColor("F"), "#FF5252");
+        assertEquals(getGradeHexColor("FAIL"), "#FF5252");
+        assertEquals(getGradeHexColor("CU"), "#FF5252");
+        assertEquals(getGradeHexColor("U"), "#FF5252");
         assertEquals(getGradeHexColor(""), "#FFFFFF");
     }
 

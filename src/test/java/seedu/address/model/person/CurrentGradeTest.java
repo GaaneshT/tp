@@ -41,10 +41,12 @@ public class CurrentGradeTest {
     public void getCurrentGradeLetter() {
         CurrentGrade currentGrade1 = new CurrentGrade("B+");
         CurrentGrade currentGrade2 = new CurrentGrade("");
+        CurrentGrade currentGrade3 = new CurrentGrade("PASS");
 
         //returns right current grade letters
         assertEquals(currentGrade1.getCurrentGradeLetter(), "B");
         assertEquals(currentGrade2.getCurrentGradeLetter(), "");
+        assertEquals(currentGrade3.getCurrentGradeLetter(), "PASS");
     }
 
     @Test

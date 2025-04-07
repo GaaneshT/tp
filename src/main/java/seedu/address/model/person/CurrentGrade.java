@@ -10,14 +10,16 @@ import static seedu.address.commons.util.ColorUtil.getGradeHexColor;
  */
 public class CurrentGrade {
 
-    public static final String MESSAGE_CONSTRAINTS = "Current Grade allows 1 Letter Grade from A to F "
-            + "with 1 + / - symbols, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Current Grade must be one of the following:\n"
+            + "  - A-F with an optional + or -, e.g., A, B+, C-\n"
+            + "  - Pass/Fail style codes: CS, CU, S, U, Pass, Fail\n"
+            + "  - Or left blank.";
 
     /*
      * The first character of the Current Grade must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "^(?:[A-F][+-]?|)$";
+    public static final String VALIDATION_REGEX = "^(?:[A-F][+-]?|CS|CU|S|U|PASS|FAIL|)$";
 
     public final String value;
     public final String color;
@@ -43,12 +45,16 @@ public class CurrentGrade {
     }
 
     /**
-     * Extracts the first letter of the given grade string.
+     * Extracts the first letter of the given grade string if Grade A to Grade F.
      *
-     * @return the first letter of the grade if present, otherwise an empty string
+     * @return the first letter of the grade if present or the value itself, otherwise an empty string
      */
     public String getCurrentGradeLetter() {
-        return value.trim().isEmpty() ? "" : value.substring(0, 1);
+        if (value.matches("^[A-F][+-]?$")) {
+            return value.trim().isEmpty() ? "" : value.trim().substring(0, 1);
+        } else {
+            return value.trim().isEmpty() ? "" : value.trim();
+        }
     }
 
     /**

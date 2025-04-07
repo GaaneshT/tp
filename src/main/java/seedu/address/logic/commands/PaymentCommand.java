@@ -83,15 +83,15 @@ public class PaymentCommand extends Command {
         PaymentInfo originalPaymentInfo = personToEdit.getPaymentInfo();
         PaymentInfo newPaymentInfo = editedPerson.getPaymentInfo();
         if (originalPaymentInfo.equals(newPaymentInfo)) {
-            return String.format(MESSAGE_SAME_PAYMENT_SUCCESS, editedPerson);
+            return String.format(MESSAGE_SAME_PAYMENT_SUCCESS, Messages.format(editedPerson));
         } else if (originalPaymentInfo.getPaymentFee() == 0 && originalPaymentInfo.getPaymentDate().isEmpty()
                 && originalPaymentInfo.getPaymentStatus().isEmpty()) {
-            return String.format(MESSAGE_ADD_PAYMENT_SUCCESS, editedPerson);
+            return String.format(MESSAGE_ADD_PAYMENT_SUCCESS, Messages.format(editedPerson));
         } else if (newPaymentInfo.getPaymentFee() == 0 && newPaymentInfo.getPaymentDate().isEmpty()
                 && newPaymentInfo.getPaymentStatus().isEmpty()) {
-            return String.format(MESSAGE_DELETE_PAYMENT_SUCCESS, editedPerson);
+            return String.format(MESSAGE_DELETE_PAYMENT_SUCCESS, Messages.format(editedPerson));
         } else {
-            return String.format(MESSAGE_UPDATE_PAYMENT_SUCCESS, editedPerson);
+            return String.format(MESSAGE_UPDATE_PAYMENT_SUCCESS, Messages.format(editedPerson));
         }
     }
 

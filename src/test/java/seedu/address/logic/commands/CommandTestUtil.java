@@ -83,13 +83,13 @@ public class CommandTestUtil {
             + "..." + INDEX_THIRD_PERSON.getOneBased();
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
+    public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911&"; // '&' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_EXP_GRADE_DESC = " " + PREFIX_EXP_GRADE + "AB"; // No more than 1 letter allowed
     public static final String INVALID_CURRENT_YEAR = " " + PREFIX_CURRENT_YEAR + "@3"; // special char not allowed
     public static final String INVALID_GRADE_DESC = " " + PREFIX_CURRENT_GRADE + "Z"; // "Z" not allowed in grades
-    public static final String INVALID_EDULEVEL_DESC = " " + PREFIX_EDULEVEL + "InvalidLevel";
+    public static final String INVALID_EDULEVEL_DESC = " " + PREFIX_EDULEVEL + "@Bachelor";
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     // '-' integer not allowed in paymentFees
     public static final String INVALID_PAYMENT_FEE_DESC = " " + PREFIX_PAYMENT_FEE + -1000;

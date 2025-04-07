@@ -46,6 +46,9 @@ public class ColorUtil {
      */
     public static String getGradeHexColor(String grade) {
         switch (grade) {
+        case "CS":
+        case "S":
+        case "PASS":
         case "A":
             return GREEN_COLOR_HEX;
         case "B":
@@ -56,6 +59,9 @@ public class ColorUtil {
             return YELLOW_COLOR_HEX;
         case "E":
             return "#FF7043";
+        case "CU":
+        case "U":
+        case "FAIL":
         case "F":
             return RED_COLOR_HEX;
         default:
