@@ -99,8 +99,8 @@ public class StringUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
         try {
-            LocalDate.parse(s, formatter);
-            return true;
+            LocalDate date = LocalDate.parse(s, formatter);
+            return !date.isBefore(LocalDate.now().minusYears(100)) && !date.isAfter(LocalDate.now().plusYears(100));
         } catch (DateTimeParseException e) {
             return false;
         }
