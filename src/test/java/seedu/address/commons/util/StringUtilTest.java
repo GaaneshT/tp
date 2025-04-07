@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.jupiter.api.Test;
 
@@ -140,4 +142,33 @@ public class StringUtilTest {
         assertThrows(NullPointerException.class, () -> StringUtil.getDetails(null));
     }
 
+    @Test
+    public void isValidDate_validDatesWithin100Years_returnsTrue() {
+        assertTrue(StringUtil.isValidDate(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
+    }
+
+    @Test
+    public void isValidDate_invalidFormat_returnsFalse() {
+        assertFalse(StringUtil.isValidDate("2000-01-01")); // Wrong format
+        assertFalse(StringUtil.isValidDate("01/01/2000")); // Wrong delimiter
+        assertFalse(StringUtil.isValidDate("01012000")); // No delimiter
+        assertFalse(StringUtil.isValidDate("")); // Empty string
+    }
+
+    @Test
+    public void isValidDate_impossibleDate_returnsFalse() {
+        assertFalse(StringUtil.isValidDate("40-02-2000"));
+        assertFalse(StringUtil.isValidDate("00-01-2020"));
+        assertFalse(StringUtil.isValidDate("50-02-2100"));
+    }
+
+    @Test
+    public void isValidDate_outside100YearRange_returnsFalse() {
+        LocalDate now = LocalDate.now();
+        String tooOld = now.minusYears(201).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String tooFuture = now.plusYears(201).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        assertFalse(StringUtil.isValidDate(tooOld));
+        assertFalse(StringUtil.isValidDate(tooFuture));
+    }
 }
