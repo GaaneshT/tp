@@ -271,9 +271,8 @@ For `edit` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE and EX
 
 * `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 * `edit 2 t-/Maths` Edits the tags of the 2nd person by removing `Maths` from existing list of tags.
-* `edit 1 t/Maths t/Science t-/Science ` Edits the tags of the 2nd person by clearing all existing tags and adding *
-  *only** `Maths`.
-* `edit 1 t+/friend t+/CS2030C#1E3BC3` appends `friend` and `CS2030C#1E3BC3` to existing tags (without overwriting or
+* `edit 2 t/Maths t/Science t-/Science` Edits the tags of the 2nd person by clearing all existing tags and adding **only** `Maths`.
+* `edit 1 t+/friend t+/CS2030C#1E3BC3` appends `friend` and `CS2030C#1E3BC3` to existing tags of the first person (without overwriting or
   removing).
 
 ### Bulk removal of tags: `untag`
