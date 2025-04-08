@@ -231,25 +231,25 @@ The following diagram shows the interaction flow for the command — `purge`. Th
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …                    | I want to …                                           | So that I can…                                                                            |
-|----------|---------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| `* * *`  | Tutor (Beginner User)     | Add student information                               | Have all necessary student info in one place.                                             |
-| `* * *`  | Tutor (Beginner User)     | Delete student information                            | Remove outdated or incorrect records.                                                     |
-| `* * *`  | Tutor (Beginner User)     | List all student information                          | Look through an organized overview of all my students for easy reference and management.  |
-| `* *`    | Tutor (Beginner User)     | Search for student information by name                | Quickly retrieve student records that match the name.                                     |
-| `* *`    | Tutor (Beginner User)     | Sort my student information when listing              | Organize and view student records sorted based on a specific field.                       |
-| `*`      | Tutor (Beginner User)     | Be able to change to Dark/Light mode                  | See certain assigned colors easier.                                                       |
-| `* *`    | Tutor (Intermediate User) | Edit student information                              | Update incorrect records.                                                                 |
-| `* *`    | Tutor (Intermediate User) | Tag students into groups                              | Easily manage students by group type.                                                     |
-| `* * *`  | Tutor (Intermediate User) | Assign colors to groups                               | Visually differentiate student groups.                                                    |
-| `* * *`  | Tutor (Intermediate User) | Be able to efficiently add or remove tag from student | Efficiently manage a student's tag without having to overwrite it instead.                |
-| `* * *`  | Tutor (Intermediate User) | Be able to bulk remove ALL student information        | Efficiently wipe out student records onto a clean slate.                                  |
-| `* *`    | Tutor (Intermediate User) | Be able to bulk remove certain tag from all students  | Efficiently clear outdated tags.                                                          |
-| `* *`    | Tutor (Expert User)       | Categorise student information                        | Better retrieve and organize relevant student data.                                       |
-| `* *`    | Tutor (Expert User)       | Perform bulk deletion of student information          | Efficiently clear outdated records and prepare for a new semester.                        |
-| `* *`    | Tutor (Expert User)       | Record student payments                               | Keep track of payments received.                                                          |
-| `* *`    | Tutor (Expert User)       | Update payment statuses                               | Know which students have outstanding fees.                                                |
-| `*`      | Tutor (Expert User)       | Filter students by criteria                           | Quickly find relevant students.                                                           |
+| Priority | As a …                    | I want to …                                           | So that I can…                                                                           |
+|----------|---------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------------|
+| `* * *`  | Tutor (Beginner User)     | Add student information                               | Have all necessary student info in one place.                                            |
+| `* * *`  | Tutor (Beginner User)     | Delete student information                            | Remove outdated or incorrect records.                                                    |
+| `* * *`  | Tutor (Beginner User)     | List all student information                          | Look through an organized overview of all my students for easy reference and management. |
+| `* *`    | Tutor (Beginner User)     | Search for student information by name                | Quickly retrieve student records that match the name.                                    |
+| `* *`    | Tutor (Beginner User)     | Sort my student information when listing              | Organize and view student records sorted based on a specific field.                      |
+| `*`      | Tutor (Beginner User)     | Be able to change to Dark/Light mode                  | See certain assigned colors easier.                                                      |
+| `* *`    | Tutor (Intermediate User) | Edit student information                              | Update incorrect records.                                                                |
+| `* *`    | Tutor (Intermediate User) | Tag students into groups                              | Easily manage students by group type.                                                    |
+| `* * *`  | Tutor (Intermediate User) | Assign colors to groups                               | Visually differentiate student groups.                                                   |
+| `* * *`  | Tutor (Intermediate User) | Be able to efficiently add or remove tag from student | Efficiently manage a student's tag without having to overwrite it instead.               |
+| `* * *`  | Tutor (Intermediate User) | Be able to bulk remove ALL student information        | Efficiently wipe out all student records onto a clean slate.                             |
+| `* *`    | Tutor (Intermediate User) | Be able to bulk remove certain tag from all students  | Efficiently clear outdated tags.                                                         |
+| `* *`    | Tutor (Expert User)       | Categorise student information                        | Better retrieve and organize relevant student data.                                      |
+| `* *`    | Tutor (Expert User)       | Perform bulk deletion of student information          | Efficiently clear outdated records and prepare for a new semester.                       |
+| `* *`    | Tutor (Expert User)       | Record student payments                               | Keep track of payments received.                                                         |
+| `* *`    | Tutor (Expert User)       | Update payment statuses                               | Know which students have outstanding fees.                                               |
+| `*`      | Tutor (Expert User)       | Filter students by criteria                           | Quickly find relevant students.                                                          |
 
 ### Use cases
 
@@ -272,13 +272,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. TutorSynch detects that user did not provide all mandatory details of a person.
+* 1a. TutorSynch detects that user did not provide all mandatory details of a student.
   * 1a1. TutorSynch shows an error message.
   * 1a2. TutorSynch terminates the add process.
 
     Use case ends.
 
-* 1b. TutorSynch detects that user did not comply with required formatting for details of a person.
+* 1b. TutorSynch detects that user did not comply with required formatting for details of a student.
   * 1b1. TutorSynch shows an error message.
   * 1b2. TutorSynch terminates the add process.
 
@@ -311,7 +311,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-* 1b. TutorSynch detects that user did not comply with required formatting for details of a person.
+* 1b. TutorSynch detects that user did not comply with required formatting for details of a student.
   * 1b1. TutorSynch shows an error message.
   * 1b2. TutorSynch terminates the edit process.
 
@@ -387,13 +387,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-* 1b. TutorSynch detects that user did not comply with required formatting for payment information of a person.
+* 1b. TutorSynch detects that user did not comply with required formatting for payment information of a student.
   * 1b1. TutorSynch shows an error message.
   * 1b2. TutorSynch terminates the edit process.
 
     Use case ends.
 
-**Use case: UC06 - Bulk delete student records using `purge` command**
+**Use case: UC06 - Bulk delete all student records**
 
 **Preconditions:**
 
@@ -405,7 +405,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the `purge` command.
+1. User requests to purge TutorSynch records.
 2. TutorSynch deletes **ALL** student records.
 3. TutorSynch informs the user of the bulk deletion.
 
@@ -422,7 +422,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the `untag` command with one or more tags.
+1. User requests to remove specific tags from all students.
 2. TutorSynch removes all occurrences of the specified tags from every student.
 3. TutorSynch shows the updated student list reflecting tag removal.
 
@@ -432,7 +432,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 - 1a. No students have any of the specified tags.
 
-  - 1a1. TutorSynch completes silently with no changes.
+  - 1a1. TutorSynch displays message that no students with tags are found.
 
     Use case ends.
   
@@ -450,7 +450,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the sort command.
+1. User requests to sort the list.
 2. TutorSynch sorts the existing student list alphabetically.
 3. TutorSynch displays the sorted list.
 
@@ -465,25 +465,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-**Use case: UC09 – Bulk delete using `clear` command by index range or tags**
+**Use case: UC09 – Bulk delete multiple students**
 
 **Preconditions:**
 
 - At least one student exists.
-- User provides either a valid index range or valid tags.
+- User has identified the range of students to be deleted.
 
 **Guarantees:**
 
-- Student records in the given index range or with matching tags are permanently deleted.
+- Student records in the given range are permanently deleted.
 
 **MSS**
 
-1. User enters clear with either:
-    1. a valid index range, or
-    2. one or more tags.
-2. TutorSynch validates input.
-3. TutorSynch deletes matching students.
-4. TutorSynch shows the updated student list.
+1. User requests to remove a range of students.
+2. TutorSynch deletes matching students.
+3. TutorSynch shows the updated student list.
 
    Use case ends.
    
@@ -494,40 +491,36 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   - 1a1. TutorSynch shows an error message.
 
     Use case ends.
-  
-- 1b. No students match the given tags.
 
-  - 1b1. TutorSynch displays a message indicating no students found.
-
-    Use case ends.
-
-**Use case: UC10 - Find a person by name**
+**Use case: UC10 – Bulk delete students with specified tags**
 
 **Preconditions:**
 
 - At least one student exists.
+- User has identified the specific tags for student record deletion.
 
 **Guarantees:**
 
-- Persons whose partial names contain at least one of the specified keywords will be displayed in a list.
+- Student records with any of the specified tags are permanently deleted.
 
 **MSS**
 
-1. User enters the `find` command followed by one or more keywords.
-2. TutorSynch searches all persons for names containing any of the given keywords.
-3. TutorSynch displays a list of matching persons.
+1. User requests to remove students with any of the specified tag(s).
+2. TutorSynch deletes matching students.
+3. TutorSynch shows the updated student list.
 
    Use case ends.
 
 **Extensions**
 
-- 3a. No matching person found.
+- 1a. No students match the given tags.
 
-  - 3a1. TutorSynch shows an empty list with display message.
+    - 1a1. TutorSynch displays a message indicating no students found.
 
-    Use case ends.
+      Use case ends.
 
-**Use case: UC11 - Filter persons based on conditions**
+
+**Use case: UC11 - Find student(s) by name**
 
 **Preconditions:**
 
@@ -535,12 +528,38 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Guarantees:**
 
-- Only persons who match all the specified filter conditions are shown in the filtered list.
+- Students whose partial names contain at least one of the specified keywords will be displayed in a list.
 
 **MSS**
 
-1. User enters the filter command followed by one or more filter conditions.
-2. TutorSynch filters the list to include only those who satisfy all the specified conditions.
+1. User request to find students with specific keyword(s).
+2. TutorSynch searches all students for names containing any of the given keywords.
+3. TutorSynch displays a list of matching students.
+
+   Use case ends.
+
+**Extensions**
+
+- 1a. No matching students found.
+
+  - 1a1. TutorSynch shows an empty list with display message.
+
+    Use case ends.
+
+**Use case: UC12 - Filter students based on conditions**
+
+**Preconditions:**
+
+- At least one student exists.
+
+**Guarantees:**
+
+- Only students who match all the specified filter conditions are shown in the filtered list.
+
+**MSS**
+
+1. User requests to filter list with specified filter conditions.
+2. TutorSynch filters the list to include only students who satisfy all the specified conditions.
 3. TutorSynch displays the filtered list.
 
    Use case ends.
@@ -559,7 +578,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   
     Use case ends.
 
-**Use case: UC12 - View help window**
+**Use case: UC13 - View help window**
 
 **Guarantees:**
 
@@ -567,7 +586,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the help command.
+1. User requests to view help window.
 2. TutorSynch displays help window consisting of User Guide weblink.
 3. User reviews and closes the help window.
 
@@ -581,7 +600,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   
     Use case ends.
 
-**Use case: UC13 - Switch application theme**
+**Use case: UC14 - Switch application theme**
 
 **Guarantees:**
 
@@ -589,13 +608,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the toggletheme command.
+1. User requests to toggle theme.
 2. TutorSynch switches between Light Mode and Dark Mode.
 3. The selected theme is saved and will be used on next startup.
 
    Use case ends.
 
-**Use case: UC14 - Exit the application**
+**Use case: UC15 - Exit the application**
 
 **Guarantees:**
 
@@ -603,7 +622,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the exit command.
+1. User requests to exit application.
 2. TutorSynch shuts down and exits the program.
 
    Use case ends.
