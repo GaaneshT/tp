@@ -199,7 +199,7 @@ For `edit` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE and EX
 2. TAGs prefixed with `t+/` are added to the current list. If the tag already exists, the updated list remains unchanged
    as tags are necessary to be unique.
 3. TAGs prefixed with `t-/` are removed from the list provided by the last step. If the tag to be removed does not
-   exist, the app silently continues with the rest.
+   exist, **the app silently continues with the rest**.
 4. The final tag list is updated to the student, and should have less than or equals to 8 unique tags.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
