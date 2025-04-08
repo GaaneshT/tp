@@ -114,7 +114,7 @@ Format:
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated contacts are 
 based on **CASE-INSENSITIVE** matching of NAMEs or **CASE-INSENSITIVE** matching of EMAILs.<br>
-For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be treated as 2 distinct contacts, 
+For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be treated as 2 distinct contacts, 
 but `Jane Doe` and `jane doe` will be treated as duplicated contacts.<br>
 For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as duplicated contacts.
 </div>
@@ -159,11 +159,10 @@ Format:
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** Duplicate detection for repeated contacts are 
 based on **CASE-INSENSITIVE** matching of NAMEs or **CASE-INSENSITIVE** matching of EMAILs.<br>
-For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be treated as 2 distinct contacts, 
+For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be treated as 2 distinct contacts, 
 but `Jane Doe` and `jane doe` will be treated as duplicated contacts.<br>
 For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as duplicated contacts.
 </div>
-
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A student can have less than or equals to 8
 unique TAGs each (including 0).</div>
