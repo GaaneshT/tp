@@ -62,7 +62,7 @@ and student data organisation more efficiently than traditional GUI-only apps.
 * Items with `…` after them can be used less than or equals to 8 times, including zero times.<br>
   e.g. `[t/TAG]…` can be used as ` ` (i.e. 0 times), `t/cs4238`, `t/cs2103 t/GEA1000` etc.
 
-* Any tags can be written as an alphanumeric tag containing no spaces and less than 10 characters
+* Any tags can be written as an alphanumeric tag containing no spaces and at most 10 characters long
     * Optional: Tags can be appended with a `#` followed by 6 hexadecimal color code for a custom color. (i.e.
       `CS2040C#ED9E49`)
     * Tags without a hexadecimal color code appended will resolve to a default color.
@@ -121,7 +121,7 @@ For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as dupl
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A student can have less than or equals to 8
 unique TAGs each (including 0).</div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Tags names should be less than 10 characters long and 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Tags names should be at most 10 characters long and 
 should not contain spaces. </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -165,7 +165,7 @@ For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as dupl
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A student can have less than or equals to 8
 unique TAGs each (including 0).</div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Tag name should be less than 10 characters long and 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** Tag name should be at most 10 characters long and 
 should not contain spaces. </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
