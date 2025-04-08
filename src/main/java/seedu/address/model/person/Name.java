@@ -11,14 +11,14 @@ public class Name {
     public static final int MAX_LENGTH = 65;
 
     public static final String MESSAGE_CONSTRAINTS =
-            String.format("Names should only contain alphanumeric characters and spaces, should not be blank, "
-                            + "and must not exceed %d characters.", MAX_LENGTH);
+            String.format("Names should only contain alphanumeric characters, spaces, ' / ', ' , ' and ' ' ' special "
+                            + "characters, should not be blank, and must not exceed %d characters.", MAX_LENGTH);
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} /',]*";
 
     public final String fullName;
 
