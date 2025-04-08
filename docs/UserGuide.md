@@ -520,7 +520,7 @@ It may also be left empty to indicate no year assigned.
 - **Prefix**: `cg/`
 - **Used in**: [`add`](#adding-a-student--add), [`edit`](#editing-a-student--edit), [`filter`](#filter-list-of-students--filter)
 
-Stores the current grade of a student, if applicable.
+Stores the current grade of a student, if applicable. (Designed with the assumption that you're managing the grade for **one module per student**.)
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 CURRENT_GRADE must be one of the following (case-insensitive): A, A+, A-, B, B+, B-, C, C+, C-, D, D+, D-, E, E+, E-, F, F+, F-, CS, CU, S, U, PASS, FAIL.<br>
 It may also be left empty to indicate no grade assigned.
@@ -530,6 +530,7 @@ It may also be left empty to indicate no grade assigned.
 - **Prefix**: `eg/`
 - **Used in**: [`add`](#adding-a-student--add), [`edit`](#editing-a-student--edit), [`filter`](#filter-list-of-students--filter)
 
+Stores the expected grade of a student, if applicable. (Designed with the assumption that you're managing the grade for **one module per student**.)
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 EXP_GRADE must be one of the following (case-insensitive): A, A+, A-, B, B+, B-, C, C+, C-, D, D+, D-, E, E+, E-, F, F+, F-, CS, CU, S, U, PASS, FAIL.<br>
 It may also be left empty to indicate no grade assigned.
