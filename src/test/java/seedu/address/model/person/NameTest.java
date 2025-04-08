@@ -77,6 +77,9 @@ public class NameTest {
         // same values -> returns true
         assertTrue(name.equals(new Name("Valid Name")));
 
+        // same letters, different caps -> returns true
+        assertTrue(name.equals(new Name("valid name")));
+
         // same object -> returns true
         assertTrue(name.equals(name));
 

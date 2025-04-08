@@ -443,14 +443,19 @@ NAME must be between 1 and 65 characters. It may also contain spaces and these s
 - **Prefix**: `p/`
 - **Used in**: [`add`](#adding-a-student--add), [`edit`](#editing-a-student--edit)
 
-Stores phone numbers. The field is not restricted to merely numbers, granting users flexibility. <br>
-For example, a user may choose to indicate multiple phone numbers, with one being the primary/preferred number, or even refer to another contact altogether. <br>
-**Example**: `Preferred:12344567 Alt:99999999` or `Call parent: Jonathan Hill`
+Stores phone number(s) of a person. The field  <br>
+For example, a user may choose to indicate multiple phone numbers and label them using the below format. <br>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
-PHONE must be between 3 and 85 characters.<br>  (Do note that extremely long PHONE may be truncated unless you increase the window size)<br>
-PHONE may include digits, letters (A–Z, a–z), spaces, and the following special characters: `+`, `(`, `)`.<br>
-**Example**: `(HP) +65 12345678 (Office) 87654321`
+Constraints apply for each PHONE number<br>
+PHONE numbers must be at least 3 digits.<br>  (Do note that extremely long PHONE may be truncated unless you increase the window size)<br>
+PHONE numbers should only consist of numbers and spaces. Please use spaces in place of dashes<br>
+PHONE numbers may include an optional + at the start to indicate country code<br>
+PHONE numbers may include an optional round bracket () at the end with alphanumeric characters for labelling of number<br>
+The total length of all phone number(s) is limited to a maximum of 85 characters<br>
+**FORMAT**: [+] PHONE_NUMBER [(label)]
+- Labels in square brackets are optional
+**Examples**: `+65 8888 8888 (Home)`, `+65 8889 8888 (Home) +65 9888 8888 (Office)`
 </div>
 
 #### Email : `e/EMAIL`
