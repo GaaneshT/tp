@@ -8,7 +8,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":PurgeCommandParser" as PurgeCommandParser LOGIC_COLOR
-participant ":PurgeCommand" as PurgeCommand LOGIC_COLOR
+participant "p:PurgeCommand" as PurgeCommand LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -52,7 +52,7 @@ create PurgeCommand
 PurgeCommandParser -> PurgeCommand
 activate PurgeCommand
 
-PurgeCommand --> PurgeCommandParser : p
+PurgeCommand --> PurgeCommandParser
 deactivate PurgeCommand
 
 
