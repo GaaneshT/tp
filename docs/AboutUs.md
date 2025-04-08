@@ -52,7 +52,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](https://gaanesh.com/)]
 [[github](https://github.com/gaanesht)]
-[[portfolio](team/gaanesh.md)]
+[[portfolio](team/gaanesht)]
 
 * Role: Developer
 

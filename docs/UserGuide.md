@@ -118,6 +118,10 @@ For example: `Jane Doe` (single-spaced) and `Jane  Doe` (double-spaced) will be 
 For example: `janedoe@email.com` and `JaneDoe@email.com` will be treated as duplicated contacts.
 </div>
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** The Current Grade and Expected Grade fields are designed to track a student’s overall academic progress, not subject-specific results.<br>
+If a tutor teaches a student multiple subjects, it’s up to them to manage subject distinctions using tags. However, since tags can change over time, grades may become outdated or misleading.
+</div>
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** A student can have less than or equals to 8
 unique TAGs each (including 0).</div>
 
@@ -201,6 +205,10 @@ For `edit` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE and EX
 3. TAGs prefixed with `t-/` are removed from the list provided by the last step. If the tag to be removed does not
    exist, the app silently continues with the rest.
 4. The final tag list is updated to the student, and should have less than or equals to 8 unique tags.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** To change the color of an existing tag, you must overwrite the tag list using t/ (e.g., `edit 1 t/Math#BBBBBB`). <br>
+Using t+/ with a different color code (e.g., `t+/Math#BBBBBB`) does not update the tag color if the tag name already exists, as t+/ only adds new tags and ignores duplicates.
+</div>
 
 **Examples**:
 
