@@ -441,6 +441,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   - 1b1. TutorSynch shows an error message.
 
     Use case ends.
+  
+- 1c. User provides no fields.
+
+    - 1c1. TutorSynch shows an error message.
+
+      Use case ends.
 
 **Use case: UC08 – Sort student list alphabetically**
 
@@ -486,9 +492,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
    
 **Extensions**
 
-- 1a. Index range is invalid.
+- 1a. User provides no fields.
 
-  - 1a1. TutorSynch shows an error message.
+    - 1a1. TutorSynch shows an error message.
+
+      Use case ends.
+
+- 1b. Index range is invalid.
+
+  - 1b1. TutorSynch shows an error message.
 
     Use case ends.
 
@@ -513,9 +525,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-- 1a. No students match the given tags.
+- 1a. User provides no fields.
 
-    - 1a1. TutorSynch displays a message indicating no students found.
+    - 1a1. TutorSynch shows an error message.
+
+        Use case ends.
+
+- 1b. No students match the given tags.
+
+    - 1b1. TutorSynch displays a message indicating no students found.
 
       Use case ends.
 
@@ -539,10 +557,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
    Use case ends.
 
 **Extensions**
+- 1a. User provides no fields.
 
-- 1a. No matching students found.
+    - 1a1. TutorSynch shows an error message.
 
-  - 1a1. TutorSynch shows an empty list with display message.
+      Use case ends.
+
+- 2a. No matching students found.
+
+  - 2a1. TutorSynch shows an empty list with display message.
 
     Use case ends.
 
