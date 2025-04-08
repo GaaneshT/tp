@@ -33,7 +33,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/samuelkwik.png" width="200px">
 
 [[github](http://github.com/samuelkwik)]
-[[portfolio](team/samuelkwik.md)]
 
 * Role: Developer
 
@@ -62,6 +61,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/theend-alr-taken.png" width="200px">
 
 [[github](https://github.com/TheEnd-alr-taken)]
-[[portfolio](team/danial.md)]
+[[portfolio](team/theend-alr-taken)]
 
 * Role: Developer
