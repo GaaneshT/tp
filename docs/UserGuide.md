@@ -47,6 +47,8 @@ and student data organisation more efficiently than traditional GUI-only apps.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 <div markdown="block" class="alert alert-info">
