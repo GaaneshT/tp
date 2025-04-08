@@ -47,7 +47,7 @@ public class UntagCommand extends Command {
                 .toList();
 
         if (personsToUpdate.isEmpty()) {
-            throw new CommandException(MESSAGE_NO_PERSON_UPDATED);
+            return new CommandResult(String.format(MESSAGE_NO_PERSON_UPDATED, tagsToRemove, personsToUpdate.size()));
         }
 
         for (Person personToUntag : personsToUpdate) {

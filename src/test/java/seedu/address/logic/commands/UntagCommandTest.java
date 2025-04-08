@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
@@ -73,7 +72,10 @@ public class UntagCommandTest {
         Set<Tag> tagsToRemove = Set.of(new Tag("CS2040"));
         UntagCommand untagCommand = new UntagCommand(tagsToRemove);
 
-        assertCommandFailure(untagCommand, model, UntagCommand.MESSAGE_NO_PERSON_UPDATED);
+        String expectedMessage = UntagCommand.MESSAGE_NO_PERSON_UPDATED;
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        assertCommandSuccess(untagCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
