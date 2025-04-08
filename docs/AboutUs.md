@@ -24,7 +24,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/junxiang26.png" width="200px">
 
 [[github](https://github.com/JunXiang26)]
-[[portfolio](team/junxiang)]
+[[portfolio](team/junxiang26)]
 
 * Role: Developer
 
