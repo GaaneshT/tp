@@ -73,7 +73,10 @@ public class UntagCommandTest {
         Set<Tag> tagsToRemove = Set.of(new Tag("CS2040"));
         UntagCommand untagCommand = new UntagCommand(tagsToRemove);
 
-        assertCommandFailure(untagCommand, model, UntagCommand.MESSAGE_NO_PERSON_UPDATED);
+        String expectedMessage = UntagCommand.MESSAGE_NO_PERSON_UPDATED;
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        assertCommandSuccess(untagCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
