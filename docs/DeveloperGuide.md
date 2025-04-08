@@ -465,7 +465,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-**Use case: UC09 – Bulk delete multiple students**
+**Use case: UC09 – Bulk delete range of students**
 
 **Preconditions:**
 
@@ -479,7 +479,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to remove a range of students.
-2. TutorSynch deletes matching students.
+2. TutorSynch deletes students in range.
 3. TutorSynch shows the updated student list.
 
    Use case ends.
