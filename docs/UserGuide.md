@@ -587,6 +587,16 @@ Two TAGs are considered equal if their names (i.e., the portion before the optio
 For example: `CS2040`, `cs2040`, and `cs2040#FFAABB` are all treated as the same TAG.<br>
 As such, when assigning TAGs, ensure that **no more than 8 unique TAG names** (ignoring case and color codes) are used per student.
 </div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Note:**<br>
+This note only applies if you're trying to test how the system handles duplicate TAG prefixes when using the `add` or `edit` commands.<br>
+When adding or editing TAGs using `t/` (in `add`), or `t/`, `t+/`, and `t-/` (in `edit`), you might enter the same TAG more than once — intentionally or by mistake. This is outside the standard usage, but here’s how the system behaves:<br>
+- If a TAG appears multiple times, only the **first occurrence** is kept. For the `edit` command, this means the first `t/` TAG takes priority, followed by the first `t+/` if any.<br>
+- If that same TAG is also listed under `t-/`, it will be **removed**, even if it was previously added.<br>
+**Example Command:** `edit 1 t/MATH#ABCDEF t/Math t/math#123456 t+/MATH#1A2B3C`<br>
+**Result:** The person will end up with only the TAG `MATH#ABCDEF`.
+</div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
