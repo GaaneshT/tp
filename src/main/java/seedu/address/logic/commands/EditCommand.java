@@ -10,6 +10,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EXP_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG_APPEND;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG_REMOVE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
@@ -58,7 +60,8 @@ public class EditCommand extends Command {
             + "[" + PREFIX_CURRENT_GRADE + "CURRENT_GRADE] "
             + "[" + PREFIX_EXP_GRADE + "EXP_GRADE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
-            + "[" + PREFIX_TAG + "REMOVE_TAG]...\n"
+            + "[" + PREFIX_TAG_REMOVE + "REMOVE_TAG] "
+            + "[" + PREFIX_TAG_APPEND + "APPEND_TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com "
