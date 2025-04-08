@@ -7,14 +7,14 @@ title: Gaanesh's Project Portfolio Page
 
 Given below are my contributions to the project.
 
-* **New Feature**: Added the `sort` command. [\#97](https://github.com/AY2425S2-CS2103-F15-2/tp/pull/97)
+* **Feature #1**: Added the `sort` command. [\#97](https://github.com/AY2425S2-CS2103-F15-2/tp/pull/97)
     * **What it does**: Allows users to sort the existing list of students by name in alphabetical order without affecting newly added students (which appear at the bottom until another `sort` is performed).
     * **Highlights**:
         - Involves a new command that interacts with the `Model` to reorder the internal list of `Person` objects.
         - Required additional parser logic (a `SortCommandParser` that rejects extra arguments).
         - Needed system tests to ensure correct behavior even when the address book is empty or partially sorted.
 
-* **New Feature**: Added the ability to append tags. [\#79](https://github.com/AY2425S2-CS2103-F15-2/tp/pull/79)
+* **Feature #2**: Added the ability to append tags. [\#79](https://github.com/AY2425S2-CS2103-F15-2/tp/pull/79)
     * **What it does**: Introduces a new `t+/` prefix in `edit` commands that appends tags instead of overwriting them.
     * **Highlights**:
         - Works in tandem with existing `t/` (overwrite) and `t-/` (remove) prefixes.
