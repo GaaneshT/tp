@@ -202,6 +202,12 @@ For `edit` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE and EX
    exist, the app silently continues with the rest.
 4. The final tag list is updated to the student, and should have less than or equals to 8 unique tags.
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+For `edit` command, you may wish to re-color the TAGs. As such, we recommend overwriting the TAGs using the `t/` prefixes, as attempting to APPEND the TAG with `t+/` will not work given the way the Set of TAGs are set up.<br>
+**Example Setup:** Person Indexed 1 has `MATHS#123456` and `SCIENCE#1A2B3C`, and we wish to change `MATH` to have the color code `#ABCDEF` instead.<br>
+**Solution:** `edit 1 t/MATH#ABCDEF t/SCIENCE#1A2B3C`
+</div>
+
 **Examples**:
 
 * `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
