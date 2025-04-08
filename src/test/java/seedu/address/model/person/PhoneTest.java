@@ -119,7 +119,7 @@ public class PhoneTest {
         assertTrue(Phone.isValidPhone("+1 2 3 +1 2 3"));
         assertTrue(Phone.isValidPhone("123 (abc) 123 (abc)")); // valid phone number with label
         assertTrue(Phone.isValidPhone("123456 (abc123) 123456 (abc123)"));
-        assertTrue(Phone.isValidPhone("+123 456 789 (abcDEF) +123 456 789 (abcDEF)")); //valid phone number with country code and label
+        assertTrue(Phone.isValidPhone("+123 456(abcDEF) +123 456(abcDEF)")); //valid numbers with code and label
         assertTrue(Phone.isValidPhone("+ 1 2 3 + 1 2 3"));
         assertTrue(Phone.isValidPhone(" 1 2 3   1 2 3 "));
         assertTrue(Phone.isValidPhone("123 () 123 ()")); // empty label

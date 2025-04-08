@@ -18,8 +18,8 @@ public class Phone {
             + "• An optional label may follow the number in round brackets, e.g. +65 8888 8888 (HP). "
             + "Only alphanumeric characters are allowed inside the brackets.\n";
 
-    public static final String VALIDATION_REGEX = "^\\+?([\\d ]*\\d[\\d ]*\\d[\\d ]*\\d[\\d ]*)(\\([a-zA-Z0-9]*\\))" +
-            "?(?:\\s+\\+?([\\d ]*\\d[\\d ]*\\d[\\d ]*\\d[\\d ]*)(\\([a-zA-Z0-9]*\\))?)*$";
+    public static final String VALIDATION_REGEX = "^\\+?([\\d ]*\\d[\\d ]*\\d[\\d ]*\\d[\\d ]*)(\\([a-zA-Z0-9]*\\))"
+            + "?(?:\\s+\\+?([\\d ]*\\d[\\d ]*\\d[\\d ]*\\d[\\d ]*)(\\([a-zA-Z0-9]*\\))?)*$";
     public final String value;
 
     /**
