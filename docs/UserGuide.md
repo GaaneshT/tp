@@ -452,6 +452,7 @@ PHONE numbers must be at least 3 digits.<br>  (Do note that extremely long PHONE
 PHONE numbers should only consist of numbers and spaces. Please use spaces in place of dashes<br>
 PHONE numbers may include an optional + at the start to indicate country code<br>
 PHONE numbers may include an optional round bracket () at the end with alphanumeric characters for labelling of number<br>
+The total length of all phone number(s) is limited to a maximum of 85 characters<br>
 **FORMAT**: [+] PHONE_NUMBER [(label)]
 - Labels in square brackets are optional
 **Examples**: `+65 8888 8888 (Home)`, `+65 8889 8888 (Home) +65 9888 8888 (Office)`
