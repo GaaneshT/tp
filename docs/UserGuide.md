@@ -199,8 +199,14 @@ For `edit` command, the parameters EDUCATION, CURRENT_YEAR, CURRENT_GRADE and EX
 2. TAGs prefixed with `t+/` are added to the current list. If the tag already exists, the updated list remains unchanged
    as tags are necessary to be unique.
 3. TAGs prefixed with `t-/` are removed from the list provided by the last step. If the tag to be removed does not
-   exist, the app silently continues with the rest.
+   exist, **the app silently continues with the rest**.
 4. The final tag list is updated to the student, and should have less than or equals to 8 unique tags.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+For `edit` command, you may wish to re-color the TAGs. As such, we recommend overwriting the TAGs using the `t/` prefixes, as attempting to APPEND the new TAG with `t+/` will not work given the way the Set of TAGs are set up.<br>
+**Example Setup:** Person indexed 1 has `MATHS#123456` and `SCIENCE#1A2B3C`, and we wish to change `MATHS` to have the color code `#ABCDEF` instead.<br>
+**Solution:** `edit 1 t/MATHS#ABCDEF t/SCIENCE#1A2B3C`
+</div>
 
 **Examples**:
 
@@ -514,7 +520,7 @@ It may also be left empty to indicate no year assigned.
 - **Prefix**: `cg/`
 - **Used in**: [`add`](#adding-a-student--add), [`edit`](#editing-a-student--edit), [`filter`](#filter-list-of-students--filter)
 
-Stores the current grade of a student, if applicable.
+Stores the current grade of a student, if applicable. (Designed with the assumption that you're managing the grade for **one module per student**.)
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 CURRENT_GRADE must be one of the following (case-insensitive): A, A+, A-, B, B+, B-, C, C+, C-, D, D+, D-, E, E+, E-, F, F+, F-, CS, CU, S, U, PASS, FAIL.<br>
 It may also be left empty to indicate no grade assigned.
@@ -524,6 +530,7 @@ It may also be left empty to indicate no grade assigned.
 - **Prefix**: `eg/`
 - **Used in**: [`add`](#adding-a-student--add), [`edit`](#editing-a-student--edit), [`filter`](#filter-list-of-students--filter)
 
+Stores the expected grade of a student, if applicable. (Designed with the assumption that you're managing the grade for **one module per student**.)
 <div markdown="span" class="alert alert-warning">:exclamation: **Constraints:**<br>
 EXP_GRADE must be one of the following (case-insensitive): A, A+, A-, B, B+, B-, C, C+, C-, D, D+, D-, E, E+, E-, F, F+, F-, CS, CU, S, U, PASS, FAIL.<br>
 It may also be left empty to indicate no grade assigned.
@@ -587,6 +594,16 @@ Two TAGs are considered equal if their names (i.e., the portion before the optio
 For example: `CS2040`, `cs2040`, and `cs2040#FFAABB` are all treated as the same TAG.<br>
 As such, when assigning TAGs, ensure that **no more than 8 unique TAG names** (ignoring case and color codes) are used per student.
 </div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Note:**<br>
+This note only applies if you're trying to test how the system handles duplicate TAG prefixes when using the `add` or `edit` commands.<br>
+When adding or editing TAGs using `t/` (in `add`), or `t/`, `t+/`, and `t-/` (in `edit`), you might enter the same TAG more than once — intentionally or by mistake. This is outside the standard usage, but here’s how the system behaves:<br>
+- If a TAG appears multiple times, only the **first occurrence** is kept. For the `edit` command, this means the first `t/` TAG takes priority, followed by the first `t+/` if any.<br>
+- If that same TAG is also listed under `t-/`, it will be **removed**, even if it was previously added.<br>
+**Example Command:** `edit 1 t/MATH#ABCDEF t/Math t/math#123456 t+/MATH#1A2B3C`<br>
+**Result:** The person will end up with only the TAG `MATH#ABCDEF`.
+</div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
