@@ -15,7 +15,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](https://www.sneakyowl.net/)]
 [[github](https://github.com/Shamanbenny)]
-[[portfolio](team/benny.md)]
+[[portfolio](team/shamanbenny.md)]
 
 * Role: Team Lead
 
@@ -42,7 +42,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](https://www.linkedin.com/in/darylgheesw/)]
 [[github](https://github.com/boinkkitty)]
-[[portfolio](team/daryl.md)]
+[[portfolio](team/boinkkitty.md)]
 
 * Role: Developer
 
@@ -52,7 +52,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](https://gaanesh.com/)]
 [[github](https://github.com/gaanesht)]
-[[portfolio](team/gaanesh.md)]
+[[portfolio](team/gaanesht.md)]
 
 * Role: Developer
 
